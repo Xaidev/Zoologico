@@ -8,7 +8,6 @@ public class BuilderArtico implements HabitatBuilder {
 
     @Override
     public HabitatBuilder setTipoSuelo(TipoSuelo tipoSuelo) {
-
         this.tipoSuelo = tipoSuelo;
         return this;
     }
