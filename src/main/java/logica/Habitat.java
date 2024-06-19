@@ -1,11 +1,15 @@
 package logica;
 
+import java.awt.image.AreaAveragingScaleFilter;
+import java.util.ArrayList;
+
 public class Habitat {
     private TipoSuelo tipoSuelo;
     private Vegetacion vegetacion;
     private Temperatura temperatura;
     private Tamaño tamaño;
     private TipoHabitat tipoHabitat;
+    private ArrayList<Animal> animals;
 
     public Habitat(TipoSuelo tipoSuelo, Vegetacion vegetacion, Temperatura temperatura, Tamaño tamaño, TipoHabitat tipoHabitat) {
         this.tipoSuelo = tipoSuelo;
@@ -13,6 +17,11 @@ public class Habitat {
         this.temperatura = temperatura;
         this.tamaño = tamaño;
         this.tipoHabitat = tipoHabitat;
+        this.animals = new ArrayList<>();
+    }
+
+    public void agregarAnimals(Animal animal) {
+        animals.add(animal);
     }
 
     public TipoSuelo getTipoSuelo() {
