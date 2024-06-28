@@ -21,8 +21,11 @@ public class PanelHabitat extends JPanel {
 
         if(habitat != null) {
             //Logica de botones para la creacion del habitat
+            BotonCrearHabitat botonCrearHabitat = new BotonCrearHabitat();
+            add(botonCrearHabitat.getBoton());
         } else {
             //Logica de agregar alimento a "deposito" alimentos, y cargar imagenes de animal y animaciones
+
         }
 
     }
