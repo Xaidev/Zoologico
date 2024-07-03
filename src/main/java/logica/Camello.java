@@ -1,4 +1,7 @@
 package logica;
 
-public class Camello {
+public class Camello extends Terrestre{
+    public Camello(){
+        super(Temperatura.ALTA,Tamaño.MEDIANO);
+    }
 }

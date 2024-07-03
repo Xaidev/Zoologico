@@ -1,4 +1,7 @@
 package logica;
 
-public class Ciervo {
+public class Ciervo extends Terrestre{
+    public Ciervo(){
+        super(Temperatura.ALTA,Tamaño.MEDIANO);
+    }
 }

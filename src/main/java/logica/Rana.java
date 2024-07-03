@@ -1,4 +1,7 @@
 package logica;
 
-public class Rana {
+public class Rana extends Terrestre {
+    public Rana(){
+        super(Temperatura.MEDIA,Tamaño.PEQUEÑO);
+    }
 }
