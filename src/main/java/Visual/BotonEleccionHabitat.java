@@ -1,16 +1,16 @@
 package Visual;
 
-import logica.Habitat;
-
 import javax.swing.*;
-import java.util.ArrayList;
 
 public class BotonEleccionHabitat extends JButton {
 
-    public BotonEleccionHabitat(Habitat habitat, ArrayList<PanelHabitat> panelHabitats, int numeroHabitat){
-        ActionListenerHabitat actionListenerHabitat = new ActionListenerHabitat(panelHabitats.get(numeroHabitat));
-        this.addActionListener(actionListenerHabitat);
+    private final PanelPrincipal panelPrincipal;
+
+    public BotonEleccionHabitat(PanelPrincipal panelPrincipal, int numeroHabitat) {
+        this.panelPrincipal = panelPrincipal;
+        this.addActionListener(e -> {
+            BotonEleccionHabitat.this.panelPrincipal.cambiarAPanelHabitat(numeroHabitat);
+            BotonEleccionHabitat.this.panelPrincipal.setNumeroHabitat(numeroHabitat);
+        });
     }
-
-
 }
