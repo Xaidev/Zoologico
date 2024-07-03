@@ -43,4 +43,15 @@ public class Habitat {
     public TipoHabitat getTipoHabitat() {
         return tipoHabitat;
     }
+
+    @Override
+    public String toString() {
+        return "Habitat{" +
+                "tipoSuelo=" + tipoSuelo +
+                ", vegetacion=" + vegetacion +
+                ", temperatura=" + temperatura +
+                ", tamaño=" + tamaño +
+                ", tipoHabitat=" + tipoHabitat +
+                '}';
+    }
 }
