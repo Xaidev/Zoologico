@@ -20,7 +20,6 @@ public class BotonRetroceder extends JButton {
         this.add(label);
         this.setBounds(0, 0, 100, 50);
         this.setFocusPainted(false);
-        this.setOpaque(false);
     }
 
     public void crearImagen(JLabel label, String rutaImagen, int x, int y, int ancho, int alto) {

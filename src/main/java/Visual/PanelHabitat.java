@@ -25,6 +25,7 @@ public class PanelHabitat extends JPanel {
         this.panelEleccionHabitats = panelEleccionHabitats;
 
         this.setLayout(null);
+        this.setOpaque(false);
         this.setBounds(0, 0, 1200, 700);
 
         //Prueba del habitat
@@ -43,7 +44,7 @@ public class PanelHabitat extends JPanel {
         if (habitat == null) {
             BotonCrearHabitat botonCrearHabitat = new BotonCrearHabitat(this);
             this.botonCrearHabitat = botonCrearHabitat.getBoton();
-            this.botonCrearHabitat.setBounds(550, 320, 100, 30);
+            this.botonCrearHabitat.setBounds(550, 320, 100, 50);
             add(this.botonCrearHabitat);
             this.add(botonRetroceder);
         }
@@ -103,12 +104,8 @@ public class PanelHabitat extends JPanel {
                 default:
                     habitatInfoLabel.setText("No se ha creado...");
             }
-        } else {
-            habitatInfoLabel.setText("No se ha creado...");
         }
     }
-
-
 
     public void crearImagen(JLabel label, String rutaImagen, int x, int y, int ancho, int alto) {
         ImageIcon icon = new ImageIcon(rutaImagen);
@@ -119,7 +116,6 @@ public class PanelHabitat extends JPanel {
         label.setBounds(x, y, ancho, alto);
         label.setVisible(true);
     }
-
 
 
     @Override
