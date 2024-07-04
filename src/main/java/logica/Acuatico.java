@@ -1,5 +1,7 @@
 package logica;
 
+import javax.swing.*;
+
 public abstract class Acuatico extends Animal {
     public Acuatico(Temperatura tem,Tamaño espacioHabitat)
     {
@@ -12,6 +14,7 @@ public abstract class Acuatico extends Animal {
     }
     @Override
     public void desplazarse() {
-
+        JLabel label = super.animalLabel;
+        label.setLocation(label.getX()+9,label.getY());
     }
 }
