@@ -20,7 +20,11 @@ public class BotonCrearHabitat {
             item.addActionListener(e -> {
                 Habitat habitat = crearHabitat(th);
                 if (habitat != null) {
-                    panelHabitat.setHabitat(habitat);
+                    try {
+                        panelHabitat.setHabitat(habitat);
+                    } catch (CamposHabitatIncompletosException camposHabitatIncompletosException) {
+                        JOptionPane.showMessageDialog(null, "Faltan campos por completar", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
                 }
             });
             menu.add(item);

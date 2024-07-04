@@ -1,6 +1,7 @@
 package Visual;
 
 import logica.Animal;
+import logica.CamposHabitatIncompletosException;
 import logica.Habitat;
 
 import javax.swing.*;
@@ -49,12 +50,18 @@ public class PanelHabitat extends JPanel {
         this.setVisible(true);
     }
 
-    public void setHabitat(Habitat habitat) {
+    public void setHabitat(Habitat habitat) throws CamposHabitatIncompletosException {
+        if(habitat == null || habitat.getTipoSuelo() == null || habitat.getTipoHabitat() == null || habitat.getTamaño() == null || habitat.getTemperatura() == null || habitat.getVegetacion() == null){
+            throw new CamposHabitatIncompletosException("Faltan campos por completar");
+        }
+
+
+
         this.habitat = habitat;
         int numeroHabitat = panelPrincipal.getNumeroHabitat();
         panelEleccionHabitats.setHabitat(numeroHabitat, habitat);
         updateHabitatInfo();
-        if (habitat != null && botonCrearHabitat != null) {
+        if (botonCrearHabitat != null) {
             this.botonCrearHabitat.setVisible(false);
         }
         panelEleccionHabitats.imprimirEstadoActualHabitats();
