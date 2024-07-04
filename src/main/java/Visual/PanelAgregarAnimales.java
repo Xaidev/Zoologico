@@ -1,0 +1,44 @@
+package Visual;
+
+import logica.FiltroSelectorAnimal;
+import logica.Habitat;
+import logica.SelectorAnimal;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class PanelAgregarAnimales extends JPanel{
+    public PanelAgregarAnimales(int x, int y, Habitat habitat){
+        this.setBounds(x,y,200,700);
+        this.setVisible(true);
+
+        SelectorAnimal[] nombresAnimales = SelectorAnimal.values();
+        this.setLayout(new GridLayout(nombresAnimales.length + 1,1));
+
+        JLabel labelTitle = new JLabel("Animales Disponibles");
+        this.add(labelTitle);
+
+        FiltroSelectorAnimal filtro = new FiltroSelectorAnimal(habitat);
+
+        for (SelectorAnimal a : nombresAnimales){
+            if(!filtro.adaptabilidadAnimal(a))
+                continue;
+
+            JButton b = new JButton(a.name());
+            b.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    filtro.crearAnimal(a);
+                }
+            });
+            this.add(b);
+        }
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+    }
+}
