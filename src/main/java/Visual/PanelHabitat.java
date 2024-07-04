@@ -103,8 +103,12 @@ public class PanelHabitat extends JPanel {
                 default:
                     habitatInfoLabel.setText("No se ha creado...");
             }
+            PanelAgregarAnimales agregarAnimales = new PanelAgregarAnimales(800,0,habitat,this);
+            this.add(agregarAnimales);
+
         } else {
             habitatInfoLabel.setText("No se ha creado...");
+
         }
     }
 

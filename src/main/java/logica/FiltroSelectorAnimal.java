@@ -18,15 +18,41 @@ public class FiltroSelectorAnimal {
 
     public boolean adaptabilidadAnimal(SelectorAnimal a){
         Animal selected = prototypeAnimalClases.get(a.ordinal());
-
         if (habitat == null)
             return false;
-        if(selected.getEspacioHabitat().equals(habitat.getTamaño()))
+        if(!selected.getTemperaturaAdecuada().equals(habitat.getTemperatura()))
             return false;
-        if(selected.getTemperaturaAdecuada().equals(habitat.getTemperatura()))
+        if(!tamañoMargen(habitat,selected))
             return false;
+        int i = 0;
+        for(TipoSuelo suelo : selected.getSuelosDisponibles()){
+            i++;
+            if (suelo == null)
+                break;
+            if(suelo.equals(habitat.getTipoSuelo()))
+                break;
+
+            if(selected.getSuelosDisponibles().size() == i)
+                return false;
+        }
+
 
         return (selected.getTipoHabitat().equals(habitat.getTipoHabitat()));
+    }
+
+    boolean tamañoMargen(Habitat h,Animal a)
+    {
+        // RETORNA TRUE SI EL TAMAÑO ES CORRECTO
+        if(a.getEspacioHabitat().equals(Tamaño.PEQUEÑO))
+            return true;
+        if(h.getTamaño().equals(Tamaño.PEQUEÑO))
+            return false;
+        if(a.getEspacioHabitat().equals(Tamaño.MEDIANO))
+            return true;
+        if(h.getTamaño().equals(Tamaño.MEDIANO))
+            return false;
+
+        return true;
     }
 
     public Animal crearAnimal(SelectorAnimal a){
@@ -44,6 +70,9 @@ public class FiltroSelectorAnimal {
             case Leon -> aux = new Leon();
             case OsoPolar -> aux = new OsoPolar();
             case ZorroArtico -> aux = new ZorroArtico();
+            case TortugaMarina -> aux = new TortugaMarina();
+            case Rana -> aux = new Rana();
+            case TiburonMartillo -> aux = new TiburonMartillo();
         }
         return aux;
     }

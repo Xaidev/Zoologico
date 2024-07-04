@@ -1,8 +1,6 @@
 package Visual;
 
-import logica.FiltroSelectorAnimal;
-import logica.Habitat;
-import logica.SelectorAnimal;
+import logica.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,7 +8,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PanelAgregarAnimales extends JPanel{
-    public PanelAgregarAnimales(int x, int y, Habitat habitat){
+    public PanelAgregarAnimales(int x, int y, Habitat habitat,PanelHabitat panelHabitat){
+        DibujarAnimales panelDibujarAnimales = new DibujarAnimales(habitat,panelHabitat);
+
         this.setBounds(x,y,200,700);
         this.setVisible(true);
 
@@ -30,11 +30,15 @@ public class PanelAgregarAnimales extends JPanel{
             b.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    filtro.crearAnimal(a);
+                    Animal aux = filtro.crearAnimal(a);
+                    habitat.agregarAnimals(aux);
+                    panelDibujarAnimales.UpdateAnimal(aux,panelHabitat);
                 }
             });
             this.add(b);
         }
+
+        Ventana.addAnimalThread(habitat);
     }
 
     @Override

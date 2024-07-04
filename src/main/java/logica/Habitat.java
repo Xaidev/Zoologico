@@ -23,6 +23,9 @@ public class Habitat {
     public void agregarAnimals(Animal animal) {
         animals.add(animal);
     }
+    public ArrayList<Animal> getAnimals(){
+        return animals;
+    }
 
     public TipoSuelo getTipoSuelo() {
         return tipoSuelo;

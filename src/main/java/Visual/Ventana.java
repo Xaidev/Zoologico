@@ -1,6 +1,10 @@
 package Visual;
 
+import logica.AnimalsThreadPorHabitat;
+import logica.Habitat;
+
 import javax.swing.*;
+import java.util.ArrayList;
 
 public class Ventana extends JFrame {
     private final PanelPrincipal panelPrincipal;
@@ -17,5 +21,9 @@ public class Ventana extends JFrame {
 
     public static void main(String[] args) {
         new Ventana();
+    }
+
+    public static void addAnimalThread(Habitat h){
+        AnimalsThreadPorHabitat aux = new AnimalsThreadPorHabitat(h.getAnimals());
     }
 }
