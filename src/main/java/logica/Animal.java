@@ -26,7 +26,7 @@ public abstract class Animal {
     public Temperatura getTemperaturaAdecuada(){
         return temperaturaAdecuada;
     }
-    public TipoHabitat getTipoHabitad(){
+    public TipoHabitat getTipoHabitat(){
         return tipoHabitat;
     }
     public Tamaño getEspacioHabitat(){
