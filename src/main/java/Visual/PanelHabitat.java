@@ -30,14 +30,14 @@ public class PanelHabitat extends JPanel {
         //Prueba del habitat
         //Aquí se añadiran los label de imagen dependiendo del tipo de text
         habitatInfoLabel = new JLabel();
-        habitatInfoLabel.setBounds(500, 280, 500, 30);
+        habitatInfoLabel.setBounds(0, 0, 900, 700);
         add(habitatInfoLabel);
 
 
         updateHabitatInfo();
 
         botonRetroceder = new BotonRetroceder(panelPrincipal);
-        botonRetroceder.setBounds(0, 0, 100, 30);
+
         this.add(botonRetroceder);
 
         if (habitat == null) {
@@ -54,9 +54,6 @@ public class PanelHabitat extends JPanel {
         if(habitat == null || habitat.getTipoSuelo() == null || habitat.getTipoHabitat() == null || habitat.getTamaño() == null || habitat.getTemperatura() == null || habitat.getVegetacion() == null){
             throw new CamposHabitatIncompletosException("Faltan campos por completar");
         }
-
-
-
         this.habitat = habitat;
         int numeroHabitat = panelPrincipal.getNumeroHabitat();
         panelEleccionHabitats.setHabitat(numeroHabitat, habitat);
@@ -70,11 +67,60 @@ public class PanelHabitat extends JPanel {
     // Esta funcion será para añadir una imagen del habitat
     public void updateHabitatInfo() {
         if (habitat != null) {
-            habitatInfoLabel.setText(habitat.toString());
+            switch (habitat.getTipoHabitat()) {
+                case ACUATICO:
+                    switch (habitat.getTipoSuelo()) {
+                        case ARCILLA:
+                            crearImagen(habitatInfoLabel, "src/main/java/Visual/Imagenes/arcilla.jpg", 0, 0, 1200, 700);
+                            break;
+                        case LIMO:
+                            crearImagen(habitatInfoLabel, "src/main/java/Visual/Imagenes/limo.jpg", 0, 0, 800, 700);
+                            break;
+                        case ARENA:
+                            crearImagen(habitatInfoLabel, "src/main/java/Visual/Imagenes/arena.jpg", 0, 0, 800, 700);
+                            break;
+                    }
+                    break;
+                case TERRESTRE:
+                    switch (habitat.getTipoSuelo()) {
+                        case ACUOSO:
+                            crearImagen(habitatInfoLabel, "src/main/java/Visual/Imagenes/pantano.jpg", 0, 0, 800, 700);
+                            break;
+                        case TIERRA:
+                            crearImagen(habitatInfoLabel, "src/main/java/Visual/Imagenes/HabitatBosque.png", 0, 0, 800, 700);
+                            break;
+                        case ARENOSO:
+                            crearImagen(habitatInfoLabel, "src/main/java/Visual/Imagenes/desierto.jpg", 0, 0, 800, 700);
+                            break;
+                        case QUEBRADO:
+                            crearImagen(habitatInfoLabel, "src/main/java/Visual/Imagenes/jungla.jpg", 0, 0, 800, 700);
+                            break;
+                        case CONGELADO:
+                            crearImagen(habitatInfoLabel, "src/main/java/Visual/Imagenes/HabitatArtico.png", 0, 0, 800, 700);
+                            break;
+                    }
+                    break;
+                default:
+                    habitatInfoLabel.setText("No se ha creado...");
+            }
         } else {
-            habitatInfoLabel.setText("No se ha creado ningún hábitat");
+            habitatInfoLabel.setText("No se ha creado...");
         }
     }
+
+
+
+    public void crearImagen(JLabel label, String rutaImagen, int x, int y, int ancho, int alto) {
+        ImageIcon icon = new ImageIcon(rutaImagen);
+        Image img = icon.getImage();
+        Image newImg = img.getScaledInstance(ancho, alto, Image.SCALE_SMOOTH);
+        ImageIcon newIcon = new ImageIcon(newImg);
+        label.setIcon(newIcon);
+        label.setBounds(x, y, ancho, alto);
+        label.setVisible(true);
+    }
+
+
 
     @Override
     public void setVisible(boolean visible) {
