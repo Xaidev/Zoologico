@@ -1,4 +1,7 @@
 package logica;
 
-public class Buho {
+public class Buho extends Volador{
+    public Buho(){
+        super(Temperatura.MEDIA,Tamaño.PEQUEÑO);
+    }
 }
