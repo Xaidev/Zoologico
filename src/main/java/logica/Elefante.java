@@ -8,4 +8,10 @@ public class Elefante extends Terrestre{
         super.sobreviveEnSuelo(TipoSuelo.ARENOSO);
         super.setRutaImagen("src/imagenes animales/elefante.png");
     }
+
+    @Override
+    public void alimentar() {
+        super.alimentar();
+        System.out.println("El elefante se está alimentando.");
+    }
 }

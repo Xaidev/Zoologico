@@ -20,9 +20,17 @@ public class Habitat {
         this.animals = new ArrayList<>();
     }
 
-    public void agregarAnimals(Animal animal) {
+    public void agregarAnimals(Animal animal) throws LimiteAnimalesExcedidoException {
+        if (animals.size() >= 5) {
+            throw new LimiteAnimalesExcedidoException("No se pueden agregar más de 5 animales a un hábitat.");
+        }
         animals.add(animal);
     }
+
+    public boolean puedeAgregarAnimal() {
+        return animals.size() < 5;
+    }
+
     public ArrayList<Animal> getAnimals(){
         return animals;
     }

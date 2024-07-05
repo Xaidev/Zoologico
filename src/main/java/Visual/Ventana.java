@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.util.ArrayList;
 
 public class Ventana extends JFrame {
-    private final PanelPrincipal panelPrincipal;
+    public final PanelPrincipal panelPrincipal;
 
     public Ventana(){
         panelPrincipal = new PanelPrincipal();

@@ -14,6 +14,7 @@ public class PanelAgregarAnimales extends JPanel{
         this.setBounds(x,y,200,700);
         this.setVisible(true);
 
+
         SelectorAnimal[] nombresAnimales = SelectorAnimal.values();
         this.setLayout(new GridLayout(nombresAnimales.length + 1,1));
 
@@ -31,7 +32,11 @@ public class PanelAgregarAnimales extends JPanel{
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     Animal aux = filtro.crearAnimal(a);
-                    habitat.agregarAnimals(aux);
+                    try {
+                        habitat.agregarAnimals(aux);
+                    } catch (LimiteAnimalesExcedidoException ex) {
+                        throw new RuntimeException(ex);
+                    }
                     panelDibujarAnimales.UpdateAnimal(aux,panelHabitat);
                 }
             });

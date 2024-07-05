@@ -53,6 +53,7 @@ public class PanelHabitat extends JPanel {
 
     public void setHabitat(Habitat habitat) throws CamposHabitatIncompletosException {
         if(habitat == null || habitat.getTipoSuelo() == null || habitat.getTipoHabitat() == null || habitat.getTamaño() == null || habitat.getTemperatura() == null || habitat.getVegetacion() == null){
+            System.out.println("Faltan campos por completar");
             throw new CamposHabitatIncompletosException("Faltan campos por completar");
         }
         this.habitat = habitat;

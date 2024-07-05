@@ -94,5 +94,9 @@ public class PanelPrincipal extends JPanel {
         botonMenu.setContentAreaFilled(false);
         panelPrincipal.add(botonMenu);
     }
+
+    public PanelEleccionHabitats getPanelEleccionHabitats() {
+        return panelEleccionHabitats;
+    }
 }
 
