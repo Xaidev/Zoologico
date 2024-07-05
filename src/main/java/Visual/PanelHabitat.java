@@ -25,13 +25,14 @@ public class PanelHabitat extends JPanel {
         this.panelEleccionHabitats = panelEleccionHabitats;
 
         this.setLayout(null);
+        this.setOpaque(false);
         this.setBounds(0, 0, 1200, 700);
 
         //Prueba del habitat
         //Aquí se añadiran los label de imagen dependiendo del tipo de text
         habitatInfoLabel = new JLabel();
         habitatInfoLabel.setBounds(0, 0, 900, 700);
-        add(habitatInfoLabel);
+        //add(habitatInfoLabel);
 
 
         updateHabitatInfo();
@@ -43,7 +44,7 @@ public class PanelHabitat extends JPanel {
         if (habitat == null) {
             BotonCrearHabitat botonCrearHabitat = new BotonCrearHabitat(this);
             this.botonCrearHabitat = botonCrearHabitat.getBoton();
-            this.botonCrearHabitat.setBounds(550, 320, 100, 30);
+            this.botonCrearHabitat.setBounds(550, 320, 100, 50);
             add(this.botonCrearHabitat);
             this.add(botonRetroceder);
         }
@@ -105,14 +106,8 @@ public class PanelHabitat extends JPanel {
             }
             PanelAgregarAnimales agregarAnimales = new PanelAgregarAnimales(800,0,habitat,this);
             this.add(agregarAnimales);
-
-        } else {
-            habitatInfoLabel.setText("No se ha creado...");
-
         }
     }
-
-
 
     public void crearImagen(JLabel label, String rutaImagen, int x, int y, int ancho, int alto) {
         ImageIcon icon = new ImageIcon(rutaImagen);
@@ -123,7 +118,6 @@ public class PanelHabitat extends JPanel {
         label.setBounds(x, y, ancho, alto);
         label.setVisible(true);
     }
-
 
 
     @Override
@@ -137,6 +131,7 @@ public class PanelHabitat extends JPanel {
 
     @Override
     protected void paintComponent(Graphics g) {
+        add(habitatInfoLabel);
         super.paintComponent(g);
     }
 }
