@@ -24,15 +24,22 @@ public abstract class Volador extends Terrestre{
     int yMove;
     void volar() throws InterruptedException {
         random = Math.random()*100;
-        super.thread.sleep(100);
         int changeDir = (int) Math.floor(random);
 
-        int flyamount = 70;
-        if(changeDir % 100 == 1 && super.animalLabel.getY() == super.startY){
-            super.animalLabel.setLocation(super.animalLabel.getX(),super.animalLabel.getY()-flyamount);
+        int flyamount = 10;
+        if(changeDir % 10 == 1 && super.animalLabel.getY() == super.startY){
+            for (int i = flyamount; i > 0; i--) {
+                super.animalLabel.setLocation(super.animalLabel.getX(), super.animalLabel.getY() - flyamount);
+                super.desplazarse();
+                super.thread.sleep(100);
+            }
         }
-        if(changeDir % 4 == 0 && super.animalLabel.getY() == super.startY-flyamount){
-            super.animalLabel.setLocation(super.animalLabel.getX(),super.animalLabel.getY()+flyamount);
+        if(changeDir % 2 == 1 && super.animalLabel.getY() < super.startY){
+            for (int i = flyamount; i > 0; i--) {
+                super.animalLabel.setLocation(super.animalLabel.getX(), super.animalLabel.getY() + flyamount);
+                super.desplazarse();
+                super.thread.sleep(100);
+            }
         }
     }
 }

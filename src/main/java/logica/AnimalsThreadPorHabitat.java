@@ -8,7 +8,7 @@ public class AnimalsThreadPorHabitat {
 
     public void Eventos(Thread thread){
         for (Animal a: animals){
-            a.update();
+            a.update(thread);
         }
     }
 
