@@ -2,7 +2,7 @@ package Visual;
 
 import logica.ComidaCarnivoro;
 import logica.ComidaHerbivoro;
-import logica.ComidaOnnivoro;
+import logica.ComidaOmnivoro;
 import logica.Habitat;
 
 import javax.swing.*;
@@ -37,11 +37,12 @@ public class PanelComida extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    h.getDeposito().addObjeto(new ComidaOnnivoro());
+                    h.getDeposito().addObjeto(new ComidaOmnivoro());
+                    panelGridComidas.drawComidas();
                 }catch (Exception error){
                     System.out.println(error.toString());
                 }
-                panelGridComidas.drawComidas();
+
             }
         });
         AgregarComidaCarnivoro.addActionListener(new ActionListener() {
@@ -49,10 +50,10 @@ public class PanelComida extends JPanel{
             public void actionPerformed(ActionEvent e) {
                 try {
                     h.getDeposito().addObjeto(new ComidaCarnivoro());
+                    panelGridComidas.drawComidas();
                 }catch (Exception error){
                     System.out.println(error.toString());
                 }
-                panelGridComidas.drawComidas();
             }
         });
         AgregarComidaHervivoro.addActionListener(new ActionListener() {
@@ -60,17 +61,18 @@ public class PanelComida extends JPanel{
             public void actionPerformed(ActionEvent e) {
                 try {
                     h.getDeposito().addObjeto(new ComidaHerbivoro());
+                    panelGridComidas.drawComidas();
                 }catch (Exception error){
                     System.out.println(error.toString());
                 }
-                panelGridComidas.drawComidas();
+
             }
         });
         LimpiarComida.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 h.getDeposito().limpiarDeposito();
-                panelGridComidas.drawComidas();
+                panelGridComidas.limpiarImagenes();
             }
         });
 

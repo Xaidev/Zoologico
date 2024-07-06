@@ -1,7 +1,7 @@
 package logica;
 
-public class ComidaOnnivoro extends Comida{
-    public ComidaOnnivoro(){
+public class ComidaOmnivoro extends Comida{
+    public ComidaOmnivoro(){
         super();
     }
 }

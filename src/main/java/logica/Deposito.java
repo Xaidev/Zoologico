@@ -51,6 +51,10 @@ public class Deposito<T> {
        throw new NoHayComidaEnElHabitat(s);
     }
 
+    public int getSize(){
+        return deposito.size();
+    }
+
     /**
      * Limpia el array
      */
