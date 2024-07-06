@@ -11,16 +11,14 @@ import java.util.ArrayList;
 public class PanelHabitat extends JPanel {
 
     private Habitat habitat;
-    private final ArrayList<Animal> animals;
     private final JLabel habitatInfoLabel;
     private JButton botonCrearHabitat;
-    private JButton botonRetroceder;
+    private final JButton botonRetroceder;
     private final PanelPrincipal panelPrincipal;
     private final PanelEleccionHabitats panelEleccionHabitats;
 
     public PanelHabitat(Habitat habitat, ArrayList<Animal> animals, PanelPrincipal panelPrincipal, PanelEleccionHabitats panelEleccionHabitats) {
         this.habitat = habitat;
-        this.animals = animals;
         this.panelPrincipal = panelPrincipal;
         this.panelEleccionHabitats = panelEleccionHabitats;
 
@@ -52,7 +50,7 @@ public class PanelHabitat extends JPanel {
     }
 
     public void setHabitat(Habitat habitat) throws CamposHabitatIncompletosException {
-        if(habitat == null || habitat.getTipoSuelo() == null || habitat.getTipoHabitat() == null || habitat.getTamaño() == null || habitat.getTemperatura() == null || habitat.getVegetacion() == null){
+        if (habitat == null || habitat.getTipoSuelo() == null || habitat.getTipoHabitat() == null || habitat.getTamaño() == null || habitat.getTemperatura() == null || habitat.getVegetacion() == null) {
             System.out.println("Faltan campos por completar");
             throw new CamposHabitatIncompletosException("Faltan campos por completar");
         }
@@ -105,7 +103,7 @@ public class PanelHabitat extends JPanel {
                 default:
                     habitatInfoLabel.setText("No se ha creado...");
             }
-            PanelAgregarAnimales agregarAnimales = new PanelAgregarAnimales(800,0,habitat,this);
+            PanelAgregarAnimales agregarAnimales = new PanelAgregarAnimales(800, 0, habitat, this);
             this.add(agregarAnimales);
         }
     }

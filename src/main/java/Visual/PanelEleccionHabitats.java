@@ -21,7 +21,7 @@ public class PanelEleccionHabitats extends JPanel {
         this.setLayout(null);
         this.habitats = new ArrayList<>();
         this.panelHabitats = new ArrayList<>();
-        this.animals = new ArrayList<Animal>();
+        this.animals = new ArrayList<>();
         this.numeroHabitats = new ArrayList<>();
         this.setBounds(0, 0, 1200, 700);
 
@@ -60,14 +60,6 @@ public class PanelEleccionHabitats extends JPanel {
         this.setVisible(true);
     }
 
-    public ArrayList<Habitat> getHabitats() {
-        return habitats;
-    }
-
-    public ArrayList<Animal> getAnimals() {
-        return animals;
-    }
-
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -94,5 +86,4 @@ public class PanelEleccionHabitats extends JPanel {
             i++;
         }
     }
-
 }

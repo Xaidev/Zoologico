@@ -1,8 +1,5 @@
 package Visual;
 
-import logica.Animal;
-import logica.Habitat;
-
 import javax.swing.*;
 import java.util.ArrayList;
 
@@ -10,12 +7,8 @@ import java.util.ArrayList;
 public class PanelPrincipal extends JPanel {
     private final PanelMenu panelMenu;
     private final PanelEleccionHabitats panelEleccionHabitats;
-
     private ArrayList<PanelHabitat> panelHabitatArrayList;
-    private final ArrayList<Habitat> habitats;
-    private final ArrayList<Animal> animals;
     private BotonMenu botonMenu;
-    private BotonRetroceder botonRetroceder;
     private int numeroHabitat;
 
 
@@ -26,8 +19,6 @@ public class PanelPrincipal extends JPanel {
         panelHabitatArrayList = new ArrayList<>();
         panelMenu = new PanelMenu();
 
-        this.habitats = panelEleccionHabitats.getHabitats();
-        this.animals = panelEleccionHabitats.getAnimals();
         this.panelHabitatArrayList = panelEleccionHabitats.getPanelHabitats();
 
 
@@ -48,7 +39,7 @@ public class PanelPrincipal extends JPanel {
         this.repaint();
     }
 
-    public void cambiarAPanelEleccionHabitat(){
+    public void cambiarAPanelEleccionHabitat() {
         // Oculta todos los paneles de hábitat
         for (PanelHabitat panel : panelHabitatArrayList) {
             panel.setVisible(false);
@@ -79,12 +70,12 @@ public class PanelPrincipal extends JPanel {
         this.repaint();
     }
 
-    public void setNumeroHabitat(int numeroHabitat) {
-        this.numeroHabitat = numeroHabitat;
-    }
-
     public int getNumeroHabitat() {
         return numeroHabitat;
+    }
+
+    public void setNumeroHabitat(int numeroHabitat) {
+        this.numeroHabitat = numeroHabitat;
     }
 
     public void cargarBotonMenu(PanelPrincipal panelPrincipal) {
@@ -95,8 +86,5 @@ public class PanelPrincipal extends JPanel {
         panelPrincipal.add(botonMenu);
     }
 
-    public PanelEleccionHabitats getPanelEleccionHabitats() {
-        return panelEleccionHabitats;
-    }
 }
 

@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 
 
-
 public class BotonRetroceder extends JButton {
     private final PanelPrincipal panelPrincipal;
 
