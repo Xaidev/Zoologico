@@ -16,7 +16,7 @@ public class PanelGridComidas extends JPanel {
     public PanelGridComidas(int x, int y, Habitat h, PanelHabitat pH){
         habitat = h;
         panelHabitat = pH;
-        comidas = habitat.getComida();
+        comidas = habitat.getDeposito();
 
         this.setOpaque(false);
         this.setLayout(new GridLayout(2,cantComida));
@@ -36,7 +36,13 @@ public class PanelGridComidas extends JPanel {
             return;
 
         for(int i = 0; i < cantComida; i++){
-            comidas.lookObjeto(i);
+            try {
+                comidas.lookObjeto(i);
+            }
+            catch (Exception e){
+                System.out.println(e.toString());
+                break;
+            }
         }
     }
 

@@ -36,28 +36,40 @@ public class PanelComida extends JPanel{
         AgregarComidaOmnivoro.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                h.getComida().addObjeto(new ComidaOnnivoro());
+                try {
+                    h.getDeposito().addObjeto(new ComidaOnnivoro());
+                }catch (Exception error){
+                    System.out.println(error.toString());
+                }
                 panelGridComidas.drawComidas();
             }
         });
         AgregarComidaCarnivoro.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                h.getComida().addObjeto(new ComidaCarnivoro());
+                try {
+                    h.getDeposito().addObjeto(new ComidaCarnivoro());
+                }catch (Exception error){
+                    System.out.println(error.toString());
+                }
                 panelGridComidas.drawComidas();
             }
         });
         AgregarComidaHervivoro.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                h.getComida().addObjeto(new ComidaHerbivoro());
+                try {
+                    h.getDeposito().addObjeto(new ComidaHerbivoro());
+                }catch (Exception error){
+                    System.out.println(error.toString());
+                }
                 panelGridComidas.drawComidas();
             }
         });
         LimpiarComida.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                h.getComida().Clear();
+                h.getDeposito().limpiarDeposito();
                 panelGridComidas.drawComidas();
             }
         });

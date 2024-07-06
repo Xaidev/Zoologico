@@ -26,7 +26,11 @@ public class Deposito<T> {
         }
         deposito.add(t);
     }
-
+    public T lookObjeto(int index){
+        if(deposito.isEmpty())
+            return null;
+        return deposito.get(index);
+    }
     /**
      * Obtiene un objeto del array, si el array esta vacio nos lanza una excepción
      * @param t Objeto a obtener
