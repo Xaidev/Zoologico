@@ -7,4 +7,7 @@ public class Guacamayo extends Volador {
         super.sobreviveEnSuelo(TipoSuelo.QUEBRADO);
         super.setRutaImagen("src/imagenes animales/guacamayo.png");
     }
+    public int getSolitario() {
+        return 0;
+    }
 }

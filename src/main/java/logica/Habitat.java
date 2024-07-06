@@ -10,30 +10,26 @@ public class Habitat {
     private Tamaño tamaño;
     private TipoHabitat tipoHabitat;
     private ArrayList<Animal> animals;
-    private Deposito<Comida> comida;
+    private Deposito<Comida> deposito;
 
     public Habitat(TipoSuelo tipoSuelo, Vegetacion vegetacion, Temperatura temperatura, Tamaño tamaño, TipoHabitat tipoHabitat) {
-        comida = new Deposito<Comida>(10);
         this.tipoSuelo = tipoSuelo;
         this.vegetacion = vegetacion;
         this.temperatura = temperatura;
         this.tamaño = tamaño;
         this.tipoHabitat = tipoHabitat;
         this.animals = new ArrayList<>();
+        this.deposito = new Deposito<>();
     }
 
     public void agregarAnimals(Animal animal) throws LimiteAnimalesExcedidoException {
-        boolean existeJaguarOsoPolar = animals.stream().anyMatch(a -> a instanceof Jaguar || a instanceof OsoPolar);
-
-        if ( animal instanceof OsoPolar && existeJaguarOsoPolar) {
-            throw new LimiteAnimalesExcedidoException("No se puede agregar más de un Oso Polar");
+        for(Animal a : animals){
+            if(a.getSolitario() == 1){
+                throw new LimiteAnimalesExcedidoException("No se pueden agregar mas animales solitarios");
+            }
         }
-        if(animal instanceof Jaguar && existeJaguarOsoPolar){
-            throw new LimiteAnimalesExcedidoException("No se puede agregar más de un Jaguar");
-        }
-
-        if (existeJaguarOsoPolar || animals.size() >= 5) {
-            throw new LimiteAnimalesExcedidoException("No se pueden agregar más animales");
+        if(animals.size() == 5) {
+            throw new LimiteAnimalesExcedidoException("No se pueden agregar mas animales");
         }
         animals.add(animal);
     }
@@ -66,8 +62,8 @@ public class Habitat {
         return tipoHabitat;
     }
 
-    public Deposito<Comida> getComida(){
-        return comida;
+    public Deposito<Comida> getDeposito() {
+        return deposito;
     }
 
     @Override

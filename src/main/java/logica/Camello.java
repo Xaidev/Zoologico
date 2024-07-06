@@ -6,4 +6,7 @@ public class Camello extends Terrestre{
         super.sobreviveEnSuelo(TipoSuelo.ARENA);
         super.sobreviveEnSuelo(TipoSuelo.ARENOSO);
     }
+    public int getSolitario() {
+        return 0;
+    }
 }

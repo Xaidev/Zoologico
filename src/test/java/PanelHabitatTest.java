@@ -18,7 +18,6 @@ public class PanelHabitatTest {
 
     @Before
     public void setUp() {
-        animals = new ArrayList<>();
         panelPrincipal = new PanelPrincipal();
         panelEleccionHabitats = new PanelEleccionHabitats(panelPrincipal);
     }
@@ -26,14 +25,14 @@ public class PanelHabitatTest {
     @Test(expected = CamposHabitatIncompletosException.class)
     public void testSetHabitatWithNullFields() throws CamposHabitatIncompletosException {
         Habitat habitatIncompleto = new Habitat(TipoSuelo.ARENA, null, null, null, TipoHabitat.TERRESTRE);
-        panelHabitat = new PanelHabitat(habitatIncompleto, animals, panelPrincipal, panelEleccionHabitats);
+        panelHabitat = new PanelHabitat(habitatIncompleto, 1, panelPrincipal, panelEleccionHabitats);
         panelHabitat.setHabitat(habitatIncompleto);
     }
 
     @Test
     public void testSetHabitatWithCompleteFields() {
         Habitat habitatCompleto = new Habitat(TipoSuelo.ARENA, Vegetacion.ESCASA, Temperatura.BAJA, Tamaño.GRANDE, TipoHabitat.TERRESTRE);
-        panelHabitat = new PanelHabitat(habitatCompleto, animals, panelPrincipal, panelEleccionHabitats);
+        panelHabitat = new PanelHabitat(habitatCompleto, 1, panelPrincipal, panelEleccionHabitats);
         try {
             panelHabitat.setHabitat(habitatCompleto);
             // Añadir aserciones aquí para verificar el estado de panelHabitat si es necesario

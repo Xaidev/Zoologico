@@ -7,4 +7,8 @@ public class OsoPolar extends Terrestre {
         super.sobreviveEnSuelo(TipoSuelo.CONGELADO);
         super.setRutaImagen("src/imagenes animales/oso polar.png");
     }
+
+    public int getSolitario() {
+        return 1;
+    }
 }
