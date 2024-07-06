@@ -26,16 +26,21 @@ public abstract class Terrestre extends Animal {
             dir = ranX%2;
         }
 
-        if(label.getX() > 800 - super.ySize)
+        if(label.getX() > 700 - super.ySize)
             dir = 1;
         if(label.getX() < 20)
             dir = 0;
 
-        for(int i = 0; i < 7 ; i++){
+        for(int i = 0; i < 100 ; i++){
             if(dir == 0)
                 label.setLocation(label.getX()+1,label.getY());
             if(dir == 1)
                 label.setLocation(label.getX()-1,label.getY());
+            try {
+                super.thread.sleep(10);
+            }catch (Exception e){
+                System.out.println(e.toString());
+            }
         }
     }
 }

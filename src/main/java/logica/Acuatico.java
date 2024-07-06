@@ -26,11 +26,11 @@ public abstract class Acuatico extends Animal {
         int ranX = (int) Math.floor(random);
 
         if(changeDir % 10 == 0){
-            dirX = ranX%2;
-            dirY = ranY%2;
+            dirX = ranX%3;
+            dirY = ranY%3;
         }
 
-        if(label.getX() > 800 - super.xSize)
+        if(label.getX() > 700 - super.xSize)
             dirX = 1;
         if(label.getX() < super.xSize)
             dirX = 0;
@@ -39,7 +39,7 @@ public abstract class Acuatico extends Animal {
         if(label.getY() < 0)
             dirY = 0;
 
-        for(int i = 0; i < 10 ; i++){
+        for(int i = 0; i < 100 ; i++){
             if(dirX == 0)
                 label.setLocation(label.getX()+1,label.getY());
             if(dirX == 1)
@@ -48,6 +48,11 @@ public abstract class Acuatico extends Animal {
                 label.setLocation(label.getX(),label.getY()+1);
             if(dirY == 1)
                 label.setLocation(label.getX(),label.getY()-1);
+            try {
+                super.thread.sleep(10);
+            }catch (Exception e){
+                System.out.println(e.toString());
+            }
         }
     }
 }

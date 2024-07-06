@@ -2,6 +2,7 @@ package logica;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 
 public class AnimalsThreadPorHabitat {
     private ArrayList<Animal> animals;
@@ -21,7 +22,11 @@ public class AnimalsThreadPorHabitat {
                     try {
                         Thread.sleep(100);
                         Eventos(this);
-                    } catch (Exception e){
+                    }catch (ConcurrentModificationException e)
+                    {
+                        continue;
+                    }
+                    catch (Exception e){
                         System.out.println(e.toString());
                         break;
                     }

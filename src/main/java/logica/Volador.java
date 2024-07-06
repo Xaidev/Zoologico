@@ -30,15 +30,13 @@ public abstract class Volador extends Terrestre{
         if(changeDir % 10 == 1 && super.animalLabel.getY() == super.startY){
             for (int i = flyamount; i > 0; i--) {
                 super.animalLabel.setLocation(super.animalLabel.getX(), super.animalLabel.getY() - flyamount);
-                super.desplazarse();
-                super.thread.sleep(100);
+                super.thread.sleep(10);
             }
         }
         if(changeDir % 2 == 1 && super.animalLabel.getY() < super.startY){
             for (int i = flyamount; i > 0; i--) {
-                super.animalLabel.setLocation(super.animalLabel.getX(), super.animalLabel.getY() + flyamount);
-                super.desplazarse();
-                super.thread.sleep(100);
+                super.animalLabel.setLocation(super.animalLabel.getX(), super.animalLabel.getY() + 1);
+                super.thread.sleep(10);
             }
         }
     }
