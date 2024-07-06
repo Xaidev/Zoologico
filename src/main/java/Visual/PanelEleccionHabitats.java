@@ -7,6 +7,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * PanelEleccionHabitats panel donde se eligen los espacios de los habitats
+ */
+
 public class PanelEleccionHabitats extends JPanel {
     private final ArrayList<Habitat> habitats;
     private final ArrayList<PanelHabitat> panelHabitats;
@@ -16,7 +20,10 @@ public class PanelEleccionHabitats extends JPanel {
     private final BotonEleccionHabitat botonEleccionHabitatHabitat4;
     private final ArrayList<Animal> animals;
     private final ArrayList<Integer> numeroHabitats;
-
+    /**
+     * Constructor de la clase PanelEleccionHabitats
+     * @param panelPrincipal
+     */
     public PanelEleccionHabitats(PanelPrincipal panelPrincipal) {
         this.setLayout(null);
         this.habitats = new ArrayList<>();
@@ -60,20 +67,31 @@ public class PanelEleccionHabitats extends JPanel {
         this.setVisible(true);
     }
 
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
     }
-
+    /**
+     * Getter de los habitats
+     * @return habitats
+     */
     public ArrayList<PanelHabitat> getPanelHabitats() {
         return panelHabitats;
     }
 
+    /**
+     * Setter de los habitats
+     * @param numeroHabitat
+     * @param habitat
+     */
     public void setHabitat(int numeroHabitat, Habitat habitat) {
         habitats.set(numeroHabitat, habitat);
     }
 
-    //Prueba para ver los estados
+    /**
+     * Funcion para ver el estado acutal de los habitats
+     */
     public void imprimirEstadoActualHabitats() {
         System.out.println("Estado actual de los habitats:");
         int i = 1;

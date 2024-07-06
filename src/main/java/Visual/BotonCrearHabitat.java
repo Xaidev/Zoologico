@@ -4,10 +4,17 @@ import logica.*;
 
 import javax.swing.*;
 
+/**
+ * BotonCrearHabitat es una clase que crea un botón que al ser presionado muestra un menú emergente con las opciones de hábitat
+ */
 public class BotonCrearHabitat {
     private final JButton boton;
     private final JPopupMenu menu;
 
+    /**
+     * Constructor de la clase BotonCrearHabitat
+     * @param panelHabitat
+     */
     public BotonCrearHabitat(PanelHabitat panelHabitat) {
         boton = new JButton("Crear Hábitat");
         menu = new JPopupMenu();
@@ -31,11 +38,20 @@ public class BotonCrearHabitat {
 
         boton.addActionListener(e -> menu.show(boton, boton.getWidth() / 2, boton.getHeight() / 2));
     }
-
+    /**
+     * Getter del botón
+     * @return Botón
+     */
     public JButton getBoton() {
         return boton;
     }
 
+    /**
+     * Crea un hábitat con los atributos dados
+     * @param tipoHabitat Tipo de hábitat a crear
+     * @return Hábitat creado
+     * @throws CamposHabitatIncompletosException
+     */
     public Habitat crearHabitat(TipoHabitat tipoHabitat) throws CamposHabitatIncompletosException{
         HabitatDirector director = new HabitatDirector();
         HabitatBuilder builder = null;
