@@ -11,6 +11,7 @@ public class PanelAgregarAnimales extends JPanel {
 
         this.setBounds(x, y, 200, 700);
         this.setVisible(true);
+        this.setOpaque(false);
 
 
         SelectorAnimal[] nombresAnimales = SelectorAnimal.values();
@@ -37,7 +38,6 @@ public class PanelAgregarAnimales extends JPanel {
             });
             this.add(b);
         }
-
         Ventana.addAnimalThread(habitat);
     }
 

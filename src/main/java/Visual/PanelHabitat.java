@@ -105,6 +105,8 @@ public class PanelHabitat extends JPanel {
             }
             PanelAgregarAnimales agregarAnimales = new PanelAgregarAnimales(800, 0, habitat, this);
             this.add(agregarAnimales);
+            PanelComida panelComida = new PanelComida(habitat,this);
+            this.add(panelComida);
         }
     }
 

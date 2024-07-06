@@ -10,8 +10,10 @@ public class Habitat {
     private Tamaño tamaño;
     private TipoHabitat tipoHabitat;
     private ArrayList<Animal> animals;
+    private Deposito<Comida> comida;
 
     public Habitat(TipoSuelo tipoSuelo, Vegetacion vegetacion, Temperatura temperatura, Tamaño tamaño, TipoHabitat tipoHabitat) {
+        comida = new Deposito<Comida>(10);
         this.tipoSuelo = tipoSuelo;
         this.vegetacion = vegetacion;
         this.temperatura = temperatura;
@@ -62,6 +64,10 @@ public class Habitat {
 
     public TipoHabitat getTipoHabitat() {
         return tipoHabitat;
+    }
+
+    public Deposito<Comida> getComida(){
+        return comida;
     }
 
     @Override

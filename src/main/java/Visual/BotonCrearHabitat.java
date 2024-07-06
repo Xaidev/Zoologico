@@ -3,6 +3,8 @@ package Visual;
 import logica.*;
 
 import javax.swing.*;
+import java.awt.*;
+import java.util.ArrayList;
 
 public class BotonCrearHabitat {
     private final JButton boton;
