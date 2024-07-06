@@ -7,10 +7,8 @@ import javax.swing.*;
 public class BotonCrearHabitat {
     private final JButton boton;
     private final JPopupMenu menu;
-    private final PanelHabitat panelHabitat;
 
     public BotonCrearHabitat(PanelHabitat panelHabitat) {
-        this.panelHabitat = panelHabitat;
         boton = new JButton("Crear Hábitat");
         menu = new JPopupMenu();
 
@@ -37,7 +35,7 @@ public class BotonCrearHabitat {
         return boton;
     }
 
-    private Habitat crearHabitat(TipoHabitat tipoHabitat) {
+    public Habitat crearHabitat(TipoHabitat tipoHabitat) {
         HabitatDirector director = new HabitatDirector();
         HabitatBuilder builder = null;
         String subTipo = null;

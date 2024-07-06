@@ -4,8 +4,6 @@ import logica.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class PanelAgregarAnimales extends JPanel {
     public PanelAgregarAnimales(int x, int y, Habitat habitat, PanelHabitat panelHabitat) {
@@ -28,16 +26,13 @@ public class PanelAgregarAnimales extends JPanel {
                 continue;
 
             JButton b = new JButton(a.name());
-            b.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
+            b.addActionListener(e -> {
+                try {
                     Animal aux = filtro.crearAnimal(a);
-                    try {
-                        habitat.agregarAnimals(aux);
-                    } catch (LimiteAnimalesExcedidoException ex) {
-                        throw new RuntimeException(ex);
-                    }
+                    habitat.agregarAnimals(aux);
                     panelDibujarAnimales.UpdateAnimal(aux, panelHabitat);
+                } catch (LimiteAnimalesExcedidoException ex) {
+                    JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                 }
             });
             this.add(b);

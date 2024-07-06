@@ -21,8 +21,17 @@ public class Habitat {
     }
 
     public void agregarAnimals(Animal animal) throws LimiteAnimalesExcedidoException {
-        if (animals.size() >= 5) {
-            throw new LimiteAnimalesExcedidoException("No se pueden agregar más de 5 animales a un hábitat.");
+        boolean existeJaguarOsoPolar = animals.stream().anyMatch(a -> a instanceof Jaguar || a instanceof OsoPolar);
+
+        if ( animal instanceof OsoPolar && existeJaguarOsoPolar) {
+            throw new LimiteAnimalesExcedidoException("No se puede agregar más de un Oso Polar");
+        }
+        if(animal instanceof Jaguar && existeJaguarOsoPolar){
+            throw new LimiteAnimalesExcedidoException("No se puede agregar más de un Jaguar");
+        }
+
+        if (existeJaguarOsoPolar || animals.size() >= 5) {
+            throw new LimiteAnimalesExcedidoException("No se pueden agregar más animales");
         }
         animals.add(animal);
     }
