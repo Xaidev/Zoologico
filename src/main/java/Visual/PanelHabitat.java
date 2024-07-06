@@ -1,8 +1,6 @@
 package Visual;
 
-import logica.Animal;
-import logica.CamposHabitatIncompletosException;
-import logica.Habitat;
+import logica.*;
 
 import javax.swing.*;
 import java.awt.*;

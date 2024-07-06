@@ -10,6 +10,7 @@ public class Habitat {
     private Tamaño tamaño;
     private TipoHabitat tipoHabitat;
     private ArrayList<Animal> animals;
+    private Deposito<Comida> deposito;
 
     public Habitat(TipoSuelo tipoSuelo, Vegetacion vegetacion, Temperatura temperatura, Tamaño tamaño, TipoHabitat tipoHabitat) {
         this.tipoSuelo = tipoSuelo;
@@ -18,6 +19,7 @@ public class Habitat {
         this.tamaño = tamaño;
         this.tipoHabitat = tipoHabitat;
         this.animals = new ArrayList<>();
+        this.deposito = new Deposito<>();
     }
 
     public void agregarAnimals(Animal animal) throws LimiteAnimalesExcedidoException {
@@ -62,6 +64,10 @@ public class Habitat {
 
     public TipoHabitat getTipoHabitat() {
         return tipoHabitat;
+    }
+
+    public Deposito<Comida> getDeposito() {
+        return deposito;
     }
 
     @Override
