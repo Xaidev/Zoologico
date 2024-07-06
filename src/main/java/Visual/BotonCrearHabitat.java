@@ -16,13 +16,14 @@ public class BotonCrearHabitat {
         for (TipoHabitat th : TipoHabitat.values()) {
             JMenuItem item = new JMenuItem(th.name());
             item.addActionListener(e -> {
-                Habitat habitat = crearHabitat(th);
-                if (habitat != null) {
-                    try {
+                try {
+                    Habitat habitat = crearHabitat(th);
+                    if (habitat != null) {
                         panelHabitat.setHabitat(habitat);
-                    } catch (CamposHabitatIncompletosException camposHabitatIncompletosException) {
-                        JOptionPane.showMessageDialog(null, "Faltan campos por completar", "Error", JOptionPane.ERROR_MESSAGE);
                     }
+                } catch (CamposHabitatIncompletosException camposHabitatIncompletosException) {
+                    JOptionPane.showMessageDialog(null, "Faltan campos por completar", "Error", JOptionPane.ERROR_MESSAGE);
+
                 }
             });
             menu.add(item);
@@ -35,7 +36,7 @@ public class BotonCrearHabitat {
         return boton;
     }
 
-    public Habitat crearHabitat(TipoHabitat tipoHabitat) {
+    public Habitat crearHabitat(TipoHabitat tipoHabitat) throws CamposHabitatIncompletosException{
         HabitatDirector director = new HabitatDirector();
         HabitatBuilder builder = null;
         String subTipo = null;
@@ -82,16 +83,29 @@ public class BotonCrearHabitat {
             TipoSuelo tipoSuelo = (TipoSuelo) JOptionPane.showInputDialog(null, "Seleccione el tipo de suelo",
                     "Tipo de Suelo", JOptionPane.QUESTION_MESSAGE, null, suelos, suelos[0]);
 
+            if(tipoSuelo == null){
+                throw new CamposHabitatIncompletosException(null);
+            }
             Vegetacion[] vegetaciones = OpcionesHabitat.getVegetacion(tipoHabitat, subTipo);
             Vegetacion vegetacion = (Vegetacion) JOptionPane.showInputDialog(null, "Seleccione el tipo de vegetación",
                     "Tipo de Vegetación", JOptionPane.QUESTION_MESSAGE, null, vegetaciones, vegetaciones[0]);
+            if(vegetacion == null){
+                throw new CamposHabitatIncompletosException(null);
+            }
 
             Temperatura[] temperaturas = OpcionesHabitat.getTemperaturas(tipoHabitat, subTipo);
             Temperatura temperatura = (Temperatura) JOptionPane.showInputDialog(null, "Seleccione la temperatura",
                     "Temperatura", JOptionPane.QUESTION_MESSAGE, null, temperaturas, temperaturas[0]);
+            if(temperatura == null){
+                throw new CamposHabitatIncompletosException(null);
+            }
+
 
             Tamaño tamaño = (Tamaño) JOptionPane.showInputDialog(null, "Seleccione el tamaño",
                     "Tamaño", JOptionPane.QUESTION_MESSAGE, null, Tamaño.values(), Tamaño.values()[0]);
+            if(tamaño == null){
+                throw new CamposHabitatIncompletosException(null);
+            }
 
             return director.construirHabitat(tipoSuelo, vegetacion, temperatura, tamaño);
         }
