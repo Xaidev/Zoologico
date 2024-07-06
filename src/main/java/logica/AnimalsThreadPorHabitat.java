@@ -19,10 +19,10 @@ public class AnimalsThreadPorHabitat {
             public void run() {
                 while (true){
                     try {
-                        Thread.sleep(200);
+                        Thread.sleep(100);
                         Eventos();
                     } catch (Exception e){
-                        System.out.println("Fallo en la hebra");
+                        System.out.println(e.toString());
                         break;
                     }
                 }
