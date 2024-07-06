@@ -5,4 +5,7 @@ public class ZorroArtico extends Terrestre {
         super(Temperatura.BAJA,Tamaño.MEDIANO);
         super.sobreviveEnSuelo(TipoSuelo.CONGELADO);
     }
+    public int getSolitario() {
+        return 0;
+    }
 }

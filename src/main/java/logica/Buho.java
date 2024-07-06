@@ -8,4 +8,7 @@ public class Buho extends Volador{
         super.sobreviveEnSuelo(TipoSuelo.ARENOSO);
         super.setRutaImagen("src/imagenes animales/buho.png");
     }
+    public int getSolitario() {
+        return 0;
+    }
 }

@@ -73,6 +73,8 @@ public abstract class Animal {
 
     public abstract void alimentar();
 
+    public abstract int getSolitario();
+
     public Thread thread;
     // Actualiza cada 100 milisegundos
     public void update(Thread thread){

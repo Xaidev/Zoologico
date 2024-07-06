@@ -12,4 +12,7 @@ public class Leon extends Terrestre {
         super.alimentar();
         System.out.println("El león se está alimentando.");
     }
+    public int getSolitario() {
+        return 0;
+    }
 }

@@ -17,19 +17,22 @@ public class PanelHabitat extends JPanel {
     private final JButton botonRetroceder;
     private final PanelPrincipal panelPrincipal;
     private final PanelEleccionHabitats panelEleccionHabitats;
+    private int numeroHabitat;
+    private ArrayList<BotonEleccionHabitat> botonesEleccionHabitat;
 
     /**
      * Constructor de la clase PanelHabitat.
      *
      * @param habitat             El objeto hábitat que se mostrará y gestionará.
-     * @param animals             Lista de animales asociados con el hábitat.
      * @param panelPrincipal      El panel principal de la aplicación.
      * @param panelEleccionHabitats El panel para la selección de hábitats.
      */
-    public PanelHabitat(Habitat habitat, ArrayList<Animal> animals, PanelPrincipal panelPrincipal, PanelEleccionHabitats panelEleccionHabitats) {
+    public PanelHabitat(Habitat habitat, int numeroHabitat, PanelPrincipal panelPrincipal, PanelEleccionHabitats panelEleccionHabitats) {
         this.habitat = habitat;
         this.panelPrincipal = panelPrincipal;
         this.panelEleccionHabitats = panelEleccionHabitats;
+        this.numeroHabitat = numeroHabitat;
+        this.botonesEleccionHabitat = panelEleccionHabitats.getBotonesEleccionHabitat();
 
         this.setLayout(null);
         this.setOpaque(false);
@@ -87,12 +90,18 @@ public class PanelHabitat extends JPanel {
                     switch (habitat.getTipoSuelo()) {
                         case ARCILLA:
                             crearImagen(habitatInfoLabel, "src/main/java/Visual/Imagenes/arcilla.jpg", 0, 0, 1200, 700);
+                            botonesEleccionHabitat.get(numeroHabitat).crearImagen(botonesEleccionHabitat.get(numeroHabitat).conseguirLabel(), "src/main/java/Visual/Imagenes/HabitatArtico.png", 0, 0, 200, 200);
+                            botonesEleccionHabitat.get(numeroHabitat).setBorderPainted(false);
                             break;
                         case LIMO:
                             crearImagen(habitatInfoLabel, "src/main/java/Visual/Imagenes/limo.jpg", 0, 0, 800, 700);
+                            botonesEleccionHabitat.get(numeroHabitat).crearImagen(botonesEleccionHabitat.get(numeroHabitat).conseguirLabel(), "src/main/java/Visual/Imagenes/HabitatArtico.png", 0, 0, 200, 200);
+                            botonesEleccionHabitat.get(numeroHabitat).setBorderPainted(false);
                             break;
                         case ARENA:
                             crearImagen(habitatInfoLabel, "src/main/java/Visual/Imagenes/arena.jpg", 0, 0, 800, 700);
+                            botonesEleccionHabitat.get(numeroHabitat).crearImagen(botonesEleccionHabitat.get(numeroHabitat).conseguirLabel(), "src/main/java/Visual/Imagenes/HabitatArtico.png", 0, 0, 200, 200);
+                            botonesEleccionHabitat.get(numeroHabitat).setBorderPainted(false);
                             break;
                     }
                     break;
@@ -100,18 +109,28 @@ public class PanelHabitat extends JPanel {
                     switch (habitat.getTipoSuelo()) {
                         case ACUOSO:
                             crearImagen(habitatInfoLabel, "src/main/java/Visual/Imagenes/pantano.jpg", 0, 0, 800, 700);
+                            botonesEleccionHabitat.get(numeroHabitat).crearImagen(botonesEleccionHabitat.get(numeroHabitat).conseguirLabel(), "src/main/java/Visual/Imagenes/HabitatArtico.png", 0, 0, 200, 200);
+                            botonesEleccionHabitat.get(numeroHabitat).setBorderPainted(false);
                             break;
                         case TIERRA:
                             crearImagen(habitatInfoLabel, "src/main/java/Visual/Imagenes/HabitatBosque.png", 0, 0, 800, 700);
+                            botonesEleccionHabitat.get(numeroHabitat).crearImagen(botonesEleccionHabitat.get(numeroHabitat).conseguirLabel(), "src/main/java/Visual/Imagenes/HabitatArtico.png", 0, 0, 200, 200);
+                            botonesEleccionHabitat.get(numeroHabitat).setBorderPainted(false);
                             break;
                         case ARENOSO:
                             crearImagen(habitatInfoLabel, "src/main/java/Visual/Imagenes/desierto.jpg", 0, 0, 800, 700);
+                            botonesEleccionHabitat.get(numeroHabitat).crearImagen(botonesEleccionHabitat.get(numeroHabitat).conseguirLabel(), "src/main/java/Visual/Imagenes/HabitatArtico.png", 0, 0, 200, 200);
+                            botonesEleccionHabitat.get(numeroHabitat).setBorderPainted(false);
                             break;
                         case QUEBRADO:
                             crearImagen(habitatInfoLabel, "src/main/java/Visual/Imagenes/jungla.jpg", 0, 0, 800, 700);
+                            botonesEleccionHabitat.get(numeroHabitat).crearImagen(botonesEleccionHabitat.get(numeroHabitat).conseguirLabel(), "src/main/java/Visual/Imagenes/HabitatArtico.png", 0, 0, 200, 200);
+                            botonesEleccionHabitat.get(numeroHabitat).setBorderPainted(false);
                             break;
                         case CONGELADO:
                             crearImagen(habitatInfoLabel, "src/main/java/Visual/Imagenes/HabitatArtico.png", 0, 0, 800, 700);
+                            botonesEleccionHabitat.get(numeroHabitat).crearImagen(botonesEleccionHabitat.get(numeroHabitat).conseguirLabel(), "src/main/java/Visual/Imagenes/HabitatArtico.png", 0, 0, 200, 200);
+                            botonesEleccionHabitat.get(numeroHabitat).setBorderPainted(false);
                             break;
                     }
                     break;

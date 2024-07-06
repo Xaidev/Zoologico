@@ -7,4 +7,7 @@ public class Ciervo extends Terrestre{
         super.sobreviveEnSuelo(TipoSuelo.QUEBRADO);
         super.setRutaImagen("src/imagenes animales/ciervo.png");
     }
+    public int getSolitario() {
+        return 0;
+    }
 }

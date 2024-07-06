@@ -10,6 +10,11 @@ public class Elefante extends Terrestre{
     }
 
     @Override
+    public int getSolitario() {
+        return 0;
+    }
+
+    @Override
     public void alimentar() {
         super.alimentar();
         System.out.println("El elefante se está alimentando.");

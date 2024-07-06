@@ -14,12 +14,9 @@ import java.util.ArrayList;
 public class PanelEleccionHabitats extends JPanel {
     private final ArrayList<Habitat> habitats;
     private final ArrayList<PanelHabitat> panelHabitats;
-    private final BotonEleccionHabitat botonEleccionHabitatHabitat1;
-    private final BotonEleccionHabitat botonEleccionHabitatHabitat2;
-    private final BotonEleccionHabitat botonEleccionHabitatHabitat3;
-    private final BotonEleccionHabitat botonEleccionHabitatHabitat4;
-    private final ArrayList<Animal> animals;
     private final ArrayList<Integer> numeroHabitats;
+    private ArrayList<BotonEleccionHabitat> botonesEleccionHabitat;
+
     /**
      * Constructor de la clase PanelEleccionHabitats
      * @param panelPrincipal
@@ -28,42 +25,35 @@ public class PanelEleccionHabitats extends JPanel {
         this.setLayout(null);
         this.habitats = new ArrayList<>();
         this.panelHabitats = new ArrayList<>();
-        this.animals = new ArrayList<>();
         this.numeroHabitats = new ArrayList<>();
+        this.botonesEleccionHabitat = new ArrayList<>();
         this.setBounds(0, 0, 1200, 700);
 
 
         for (int i = 0; i < 4; i++) {
             habitats.add(null);
-            panelHabitats.add(new PanelHabitat(habitats.get(i), animals, panelPrincipal, this));
+            panelHabitats.add(new PanelHabitat(habitats.get(i), i, panelPrincipal, this));
             numeroHabitats.add(i);
         }
 
+        for(int i = 0; i < 4; i++){
+            botonesEleccionHabitat.add(new BotonEleccionHabitat(panelPrincipal, numeroHabitats.get(i)));
+        }
 
-        botonEleccionHabitatHabitat1 = new BotonEleccionHabitat(panelPrincipal, numeroHabitats.get(0));
-        botonEleccionHabitatHabitat1.setBounds(200, 120, 200, 200);
-        botonEleccionHabitatHabitat1.setOpaque(false);
-        botonEleccionHabitatHabitat1.setContentAreaFilled(false);
-        this.add(botonEleccionHabitatHabitat1);
 
-        botonEleccionHabitatHabitat2 = new BotonEleccionHabitat(panelPrincipal, numeroHabitats.get(1));
-        botonEleccionHabitatHabitat2.setBounds(300, 380, 200, 200);
-        botonEleccionHabitatHabitat2.setOpaque(false);
-        botonEleccionHabitatHabitat2.setContentAreaFilled(false);
-        this.add(botonEleccionHabitatHabitat2);
+        botonesEleccionHabitat.get(0).setBounds(200, 120, 200, 200);
+        this.add(botonesEleccionHabitat.get(0));
 
-        botonEleccionHabitatHabitat3 = new BotonEleccionHabitat(panelPrincipal, numeroHabitats.get(2));
-        botonEleccionHabitatHabitat3.setBounds(700, 120, 200, 200);
-        botonEleccionHabitatHabitat3.setOpaque(false);
-        botonEleccionHabitatHabitat3.setContentAreaFilled(false);
-        this.add(botonEleccionHabitatHabitat3);
+        botonesEleccionHabitat.get(1).setBounds(300, 380, 200, 200);
+        this.add(botonesEleccionHabitat.get(1));
 
-        botonEleccionHabitatHabitat4 = new BotonEleccionHabitat(panelPrincipal, numeroHabitats.get(3));
-        botonEleccionHabitatHabitat4.setBounds(800, 380, 200, 200);
-        botonEleccionHabitatHabitat4.setOpaque(false);
-        botonEleccionHabitatHabitat4.setContentAreaFilled(false);
-        this.add(botonEleccionHabitatHabitat4);
 
+        botonesEleccionHabitat.get(2).setBounds(700, 120, 200, 200);
+        this.add(botonesEleccionHabitat.get(2));
+
+
+        botonesEleccionHabitat.get(3).setBounds(800, 380, 200, 200);
+        this.add(botonesEleccionHabitat.get(3));
         this.setVisible(true);
     }
 
@@ -78,6 +68,10 @@ public class PanelEleccionHabitats extends JPanel {
      */
     public ArrayList<PanelHabitat> getPanelHabitats() {
         return panelHabitats;
+    }
+
+    public ArrayList<BotonEleccionHabitat> getBotonesEleccionHabitat() {
+        return botonesEleccionHabitat;
     }
 
     /**

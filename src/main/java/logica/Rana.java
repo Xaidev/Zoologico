@@ -6,4 +6,7 @@ public class Rana extends Terrestre {
         super.sobreviveEnSuelo(TipoSuelo.ACUOSO);
         super.setRutaImagen("src/imagenes animales/rana.png");
     }
+    public int getSolitario() {
+        return 0;
+    }
 }

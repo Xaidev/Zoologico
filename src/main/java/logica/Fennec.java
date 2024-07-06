@@ -7,4 +7,7 @@ public class Fennec extends Terrestre{
         super.sobreviveEnSuelo(TipoSuelo.ARENA);
         super.setRutaImagen("src/imagenes animales/zorro fennec.png");
     }
+    public int getSolitario() {
+        return 0;
+    }
 }
