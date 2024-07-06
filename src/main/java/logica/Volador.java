@@ -15,11 +15,16 @@ public abstract class Volador extends Terrestre{
     @Override
     public void desplazarse() {
         super.desplazarse();
-        volar();
+        try {
+            volar();
+        } catch (InterruptedException e) {
+            System.out.println("Error en volar");
+        }
     }
     int yMove;
-    void volar(){
+    void volar() throws InterruptedException {
         random = Math.random()*100;
+        super.thread.sleep(100);
         int changeDir = (int) Math.floor(random);
 
         int flyamount = 70;

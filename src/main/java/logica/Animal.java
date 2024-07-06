@@ -18,7 +18,7 @@ public abstract class Animal {
     private Tamaño espacioHabitat;
     private ArrayList<TipoSuelo> suelosDisponibles;
 
-    public Animal(TipoHabitat h,Temperatura t,Tamaño s){
+    public Animal(TipoHabitat h, Temperatura t, Tamaño s) {
         animalLabel = new JLabel("Hola");
         suelosDisponibles = new ArrayList<TipoSuelo>();
         tipoHabitat = h;
@@ -28,46 +28,55 @@ public abstract class Animal {
         xSize *= espacioHabitat.ordinal() + 1;
         ySize *= espacioHabitat.ordinal() + 1;
     }
-    public void setRutaImagen(String arg){
+
+    public void setRutaImagen(String arg) {
         rutaImagen = arg;
     }
-    public String getRutaImagen(){
+
+    public String getRutaImagen() {
         return rutaImagen;
     }
-    public Temperatura getTemperaturaAdecuada(){
+
+    public Temperatura getTemperaturaAdecuada() {
         return temperaturaAdecuada;
     }
-    public TipoHabitat getTipoHabitat(){
+
+    public TipoHabitat getTipoHabitat() {
         return tipoHabitat;
     }
-    public Tamaño getEspacioHabitat(){
+
+    public Tamaño getEspacioHabitat() {
         return espacioHabitat;
     }
 
     public ArrayList<TipoSuelo> getSuelosDisponibles() {
         return suelosDisponibles;
     }
-    public void sobreviveEnSuelo(TipoSuelo s){
+
+    public void sobreviveEnSuelo(TipoSuelo s) {
         suelosDisponibles.add(s);
     }
 
     int probabtimeMove = 3000;
-    public void setProbabilityMove(int arg)
-    {
+
+    public void setProbabilityMove(int arg) {
         probabtimeMove = arg;
     }
 
     int offsetTimeMove = 0;
-    public void setOffsetTimeMove(int arg)
-    {
+
+    public void setOffsetTimeMove(int arg) {
         offsetTimeMove = arg;
     }
 
     public abstract void desplazarse();
+
     public abstract void alimentar();
 
+    public Thread thread;
     // Actualiza cada 100 milisegundos
-    public void update(){
+    public void update(Thread thread){
+        this.thread = thread;
         alimentar();
         quiereMoverse();
     }

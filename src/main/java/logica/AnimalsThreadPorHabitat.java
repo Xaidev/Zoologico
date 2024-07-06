@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class AnimalsThreadPorHabitat {
     private ArrayList<Animal> animals;
 
-    public void Eventos(){
+    public void Eventos(Thread thread){
         for (Animal a: animals){
             a.update();
         }
@@ -20,7 +20,7 @@ public class AnimalsThreadPorHabitat {
                 while (true){
                     try {
                         Thread.sleep(100);
-                        Eventos();
+                        Eventos(this);
                     } catch (Exception e){
                         System.out.println(e.toString());
                         break;
