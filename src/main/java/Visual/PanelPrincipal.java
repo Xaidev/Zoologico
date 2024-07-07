@@ -1,6 +1,7 @@
 package Visual;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 
 
@@ -10,17 +11,22 @@ public class PanelPrincipal extends JPanel {
     private ArrayList<PanelHabitat> panelHabitatArrayList;
     private BotonMenu botonMenu;
     private int numeroHabitat;
-    private PanelAvisos panelAvisos;
+    private ArrayList<PanelAvisos> panelAvisosArrayList;
+    private PanelAvisos panelAvisosEleccionHabitat;
 
 
     public PanelPrincipal() {
         this.setLayout(null);
 
+        panelAvisosEleccionHabitat = new PanelAvisos();
+        panelAvisosArrayList = new ArrayList<>();
         panelEleccionHabitats = new PanelEleccionHabitats(this);
         panelHabitatArrayList = new ArrayList<>();
         panelMenu = new PanelMenu();
-        panelAvisos = new PanelAvisos();
 
+        for(int i = 0; i < 4; i++){
+            panelAvisosArrayList.add(new PanelAvisos());
+        }
 
         this.panelHabitatArrayList = panelEleccionHabitats.getPanelHabitats();
 
@@ -33,11 +39,14 @@ public class PanelPrincipal extends JPanel {
             panelHabitat.setVisible(false);
         }
         panelEleccionHabitats.setVisible(false);
+        panelAvisosEleccionHabitat.setVisible(false);
+        panelEleccionHabitats.setVisible(false);
     }
 
     public void cambiarAPanelEleccionHabitatDesdeMenu() {
         panelMenu.setVisible(false);
         panelEleccionHabitats.setVisible(true);
+        panelAvisosEleccionHabitat.setVisible(true);
         this.revalidate();
         this.repaint();
     }
@@ -48,7 +57,7 @@ public class PanelPrincipal extends JPanel {
             panel.setVisible(false);
         }
         panelEleccionHabitats.setVisible(true);
-
+        panelAvisosEleccionHabitat.setVisible(true);
         this.revalidate();
         this.repaint();
     }
@@ -61,6 +70,7 @@ public class PanelPrincipal extends JPanel {
         // Muestra el panel seleccionado
         PanelHabitat panelHabitatActual = panelHabitatArrayList.get(numeroHabitat);
         panelHabitatActual.setVisible(true);
+        panelAvisosArrayList.get(numeroHabitat).setVisible(true);
 
         // Oculta el panel de selección de hábitat
         panelEleccionHabitats.setVisible(false);
@@ -73,8 +83,15 @@ public class PanelPrincipal extends JPanel {
         this.repaint();
     }
 
-    public PanelAvisos getPanelAvisos(){
-        return panelAvisos;
+    public PanelAvisos getPanelAvisosHabitat(int a){
+        return panelAvisosArrayList.get(a);
+    }
+    public PanelAvisos getPanelAvisosEleccionHabitat(){
+        return panelAvisosEleccionHabitat;
+    }
+
+    public ArrayList<PanelHabitat> getPanelHabitatArrayList() {
+        return panelHabitatArrayList;
     }
 
     public int getNumeroHabitat() {

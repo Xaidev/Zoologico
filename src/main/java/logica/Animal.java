@@ -1,15 +1,18 @@
 package logica;
 
+import Visual.PanelPrincipal;
+
 import javax.swing.*;
 import java.util.ArrayList;
 
 public abstract class Animal {
 
     public JLabel animalLabel;
+    private PanelPrincipal panelPrincipal;
     private String rutaImagen = "src/imagenes animales/buho.png";
     public int startX = 0;
     public int startY = 300;
-
+    public boolean one;
     public int xSize = 100;
     public int ySize = 100;
     private Temperatura temperaturaAdecuada;
@@ -28,9 +31,17 @@ public abstract class Animal {
         tipoHabitat = h;
         temperaturaAdecuada = t;
         espacioHabitat = s;
-
+        one = false;
         xSize *= espacioHabitat.ordinal() + 1;
         ySize *= espacioHabitat.ordinal() + 1;
+    }
+
+    public void setPanelPrincipal(PanelPrincipal panelPrincipal) {
+        this.panelPrincipal = panelPrincipal;
+    }
+
+    public PanelPrincipal getPanelPrincipal() {
+        return panelPrincipal;
     }
 
     public void setHabitat(Habitat h){
@@ -83,7 +94,7 @@ public abstract class Animal {
 
     public abstract void desplazarse();
 
-    int hambrePercent = 0;
+    int hambrePercent = 90;
     // RETORNA FALSE SI NO HAY QUE ALIMENTARLO
     public boolean alimentar(){
         System.out.println(hambrePercent);
@@ -91,7 +102,16 @@ public abstract class Animal {
             buscarComida();
             return true;
         }
+        if(!actualHabitat.hayHambre()){
+            panelPrincipal.getPanelAvisosEleccionHabitat().clearAviso(actualHabitat.getNumeroHabitat());
+        }
+        if(!actualHabitat.especieConHambre(getClass().getSimpleName())){
+            panelPrincipal.getPanelAvisosHabitat(actualHabitat.getNumeroHabitat()).clearAvisos("No hay alimento para: " + getClass().getSimpleName());
+        }
         return false;
+    }
+    public int getHambrePercent(){
+        return hambrePercent;
     }
 
     public abstract int getSolitario();
@@ -128,11 +148,11 @@ public abstract class Animal {
     void buscarComida(){
         Deposito deposito = actualHabitat.getDeposito();
         try {
-            deposito.getObjeto(tipoAlimento,getClass().getSimpleName());
+            deposito.getObjeto(tipoAlimento,getClass().getSimpleName(), actualHabitat.getNumeroHabitat(), actualHabitat);
             hambrePercent = 0;
         }
         catch (Exception e){
-            System.out.println(e.toString());
+            System.out.println(e.toString() + "pepe");
         }
     }
 }

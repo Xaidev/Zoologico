@@ -16,6 +16,7 @@ public class PanelEleccionHabitats extends JPanel {
     private final ArrayList<PanelHabitat> panelHabitats;
     private final ArrayList<Integer> numeroHabitats;
     private ArrayList<BotonEleccionHabitat> botonesEleccionHabitat;
+    private PanelPrincipal panelPrincipal;
 
     /**
      * Constructor de la clase PanelEleccionHabitats
@@ -23,10 +24,12 @@ public class PanelEleccionHabitats extends JPanel {
      */
     public PanelEleccionHabitats(PanelPrincipal panelPrincipal) {
         this.setLayout(null);
+        this.setOpaque(false);
         this.habitats = new ArrayList<>();
         this.panelHabitats = new ArrayList<>();
         this.numeroHabitats = new ArrayList<>();
         this.botonesEleccionHabitat = new ArrayList<>();
+        this.panelPrincipal = panelPrincipal;
         this.setBounds(0, 0, 1200, 700);
 
 
@@ -54,6 +57,11 @@ public class PanelEleccionHabitats extends JPanel {
 
         botonesEleccionHabitat.get(3).setBounds(800, 380, 200, 200);
         this.add(botonesEleccionHabitat.get(3));
+
+
+        PanelAvisos panelAvisos = panelPrincipal.getPanelAvisosEleccionHabitat();
+        panelAvisos.setBounds(0, 0, 400, 100);
+        this.add(panelAvisos);
         this.setVisible(true);
     }
 

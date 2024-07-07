@@ -10,7 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PanelComida extends JPanel{
-    public PanelComida(Habitat h, PanelHabitat ph){
+    public PanelComida(Habitat h, PanelHabitat ph, PanelPrincipal panelPrincipal){
         this.setLayout(null);
         this.setOpaque(false);
         this.setBounds(0,0,2000,2000);
@@ -21,7 +21,7 @@ public class PanelComida extends JPanel{
         Title.setBounds(800,startPosY-20,300,20);
         this.add(Title);
 
-        PanelGridComidas panelGridComidas = new PanelGridComidas(800,startPosY+heigthButton,h,ph);
+        PanelGridComidas panelGridComidas = new PanelGridComidas(800,startPosY+heigthButton,h,ph,panelPrincipal);
         this.add(panelGridComidas);
 
         JButton AgregarComidaCarnivoro = new JButton("Carnivoro");
@@ -38,9 +38,11 @@ public class PanelComida extends JPanel{
             public void actionPerformed(ActionEvent e) {
                 try {
                     h.getDeposito().addObjeto(new ComidaOmnivoro());
+                    Thread.sleep(200);
                     panelGridComidas.drawComidas();
                 }catch (Exception error){
                     System.out.println(error.toString());
+                    System.out.println("asd");
                 }
 
             }
@@ -50,9 +52,11 @@ public class PanelComida extends JPanel{
             public void actionPerformed(ActionEvent e) {
                 try {
                     h.getDeposito().addObjeto(new ComidaCarnivoro());
+                    Thread.sleep(200);
                     panelGridComidas.drawComidas();
                 }catch (Exception error){
                     System.out.println(error.toString());
+                    System.out.println("elpepe");
                 }
             }
         });
@@ -61,9 +65,11 @@ public class PanelComida extends JPanel{
             public void actionPerformed(ActionEvent e) {
                 try {
                     h.getDeposito().addObjeto(new ComidaHerbivoro());
+                    Thread.sleep(200);
                     panelGridComidas.drawComidas();
                 }catch (Exception error){
                     System.out.println(error.toString());
+                    System.out.println("etesech");
                 }
 
             }

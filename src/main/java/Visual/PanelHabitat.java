@@ -71,13 +71,16 @@ public class PanelHabitat extends JPanel {
             throw new CamposHabitatIncompletosException("Faltan campos por completar");
         }
         this.habitat = habitat;
-        int numeroHabitat = panelPrincipal.getNumeroHabitat();
+        numeroHabitat = panelPrincipal.getNumeroHabitat();
+        habitat.setNumeroHabitat(numeroHabitat);
         panelEleccionHabitats.setHabitat(numeroHabitat, habitat);
         updateHabitatInfo();
         if (botonCrearHabitat != null) {
             this.botonCrearHabitat.setVisible(false);
         }
-        this.add(panelPrincipal.getPanelAvisos());
+        panelPrincipal.getPanelAvisosHabitat(numeroHabitat).setBounds(800,350,400,100);
+        this.add(panelPrincipal.getPanelAvisosHabitat(numeroHabitat));
+
         panelEleccionHabitats.imprimirEstadoActualHabitats();
     }
 
@@ -141,7 +144,7 @@ public class PanelHabitat extends JPanel {
             }
             PanelAgregarAnimales agregarAnimales = new PanelAgregarAnimales(800, 0, habitat, this);
             this.add(agregarAnimales);
-            PanelComida panelComida = new PanelComida(habitat,this);
+            PanelComida panelComida = new PanelComida(habitat,this, panelPrincipal);
             this.add(panelComida);
         }
     }
@@ -179,6 +182,10 @@ public class PanelHabitat extends JPanel {
         }
     }
 
+    public int getNumeroHabitat() {
+        return numeroHabitat;
+    }
+
     /**
      * Sobrescribe el método paintComponent para agregar el JLabel de información del hábitat al panel.
      *
@@ -188,5 +195,9 @@ public class PanelHabitat extends JPanel {
     protected void paintComponent(Graphics g) {
         add(habitatInfoLabel);
         super.paintComponent(g);
+    }
+
+    public PanelPrincipal getPanelPrincipal() {
+        return panelPrincipal;
     }
 }

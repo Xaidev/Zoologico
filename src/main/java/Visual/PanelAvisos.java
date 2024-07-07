@@ -6,13 +6,12 @@ import java.util.ArrayList;
 
 public class PanelAvisos extends JPanel {
 
-    private ArrayList<JLabel> spaces;
+    public ArrayList<JLabel> spaces;
 
 
     public PanelAvisos(){
-        this.setLayout(new GridLayout(4,0,0,0));
+        this.setLayout(new GridLayout(5,0,0,0));
         this.setOpaque(false);
-        this.setBounds(800,350,400,100);
 
         spaces = new ArrayList<>();
         for(int i = 0; i < 4; i++){
@@ -20,27 +19,37 @@ public class PanelAvisos extends JPanel {
             spaces.add(aux);
             this.add(aux);
         }
-        //Prueba
-        addAviso("XD", 0);
-        addAviso("XDDDD", 1);
-        addAviso("XDDDDDDDDD", 2);
-        addAviso("XDDDDDDDDDDDDDD", 3);
+        for(int i = 0; i < 4 ; i++){
+            spaces.get(i).setText("");
+        }
+
         this.setVisible(true);
     }
 
 
     public void addAviso(String aviso, int i){
-        spaces.get(i).setText(aviso);
-        System.out.println(spaces.get(i).getText());
+        spaces.get(i%4).setText(aviso);
     }
 
-    public void clearAvisos(){
-        this.removeAll();
+    public boolean repetido(String s){
+        for(int i = 0; i < 4; i++){
+            if(spaces.get(i).getText().equals(s)){
+                return true;
+            }
+        }
+        return false;
     }
 
-    public void updateAvisos(){
-        this.repaint();
+
+    public void clearAviso(int i){
+        spaces.get(i).setText("");
     }
 
-
+    public void clearAvisos(String s){
+        for(int i = 0; i < 4; i++){
+            if(spaces.get(i).getText().equals(s)){
+                spaces.get(i).setText("");
+            }
+        }
+    }
 }

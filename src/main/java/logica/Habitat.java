@@ -11,6 +11,7 @@ public class Habitat {
     private TipoHabitat tipoHabitat;
     private ArrayList<Animal> animals;
     private Deposito deposito;
+    private int numeroHabitat;
 
     public Habitat(TipoSuelo tipoSuelo, Vegetacion vegetacion, Temperatura temperatura, Tamaño tamaño, TipoHabitat tipoHabitat) {
         this.tipoSuelo = tipoSuelo;
@@ -20,6 +21,13 @@ public class Habitat {
         this.tipoHabitat = tipoHabitat;
         this.animals = new ArrayList<>();
         this.deposito = new Deposito();
+    }
+
+    public void setNumeroHabitat(int numeroHabitat){
+        this.numeroHabitat = numeroHabitat;
+    }
+    public int getNumeroHabitat(){
+        return numeroHabitat;
     }
 
     public void agregarAnimals(Animal animal) throws LimiteAnimalesExcedidoException {
@@ -44,6 +52,24 @@ public class Habitat {
 
     public ArrayList<Animal> getAnimals(){
         return animals;
+    }
+
+    public boolean hayHambre(){
+        for(Animal a: animals) {
+            if(a.getHambrePercent() >= 100){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean especieConHambre(String s){
+        for(Animal a : animals){
+            if(a.getClass().getSimpleName().equals(s) && a.getHambrePercent() >= 100){
+                return true;
+            }
+        }
+        return false;
     }
 
     public TipoSuelo getTipoSuelo() {

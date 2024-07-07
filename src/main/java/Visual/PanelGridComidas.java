@@ -8,15 +8,17 @@ import java.util.ArrayList;
 public class PanelGridComidas extends JPanel {
     private Habitat habitat;
     private Deposito comidas;
+    private PanelPrincipal panelPr;
     private PanelHabitat panelHabitat;
     private ArrayList<JLabel> spaces;
     private int depositoTama;
 
 
     final int widthAllGrid = 400;
-    public PanelGridComidas(int x, int y, Habitat h, PanelHabitat pH){
+    public PanelGridComidas(int x, int y, Habitat h, PanelHabitat pH, PanelPrincipal panelPrincipal){
         habitat = h;
         panelHabitat = pH;
+        panelPr = panelPrincipal;
         comidas = habitat.getDeposito();
 
         this.setOpaque(false);
@@ -35,6 +37,7 @@ public class PanelGridComidas extends JPanel {
     public void drawComidas(){
         limpiarImagenes();
         comidas.setVisualDeposito(this);
+        comidas.setVisualPrincipal(panelPr);
         if(comidas == null)
             return;
         System.out.println(comidas.getSize());

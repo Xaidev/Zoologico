@@ -30,6 +30,7 @@ public class PanelAgregarAnimales extends JPanel {
             b.addActionListener(e -> {
                 try {
                     Animal aux = filtro.crearAnimal(a);
+                    aux.setPanelPrincipal(panelHabitat.getPanelPrincipal());
                     habitat.agregarAnimals(aux);
                     panelDibujarAnimales.UpdateAnimal(aux, panelHabitat);
                 } catch (LimiteAnimalesExcedidoException ex) {
