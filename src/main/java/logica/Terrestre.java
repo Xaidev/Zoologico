@@ -8,10 +8,6 @@ public abstract class Terrestre extends Animal {
         super(TipoHabitat.TERRESTRE,tem,espacioHabitat);
     }
 
-    @Override
-    public void alimentar() {
-
-    }
     int dir = 0;
     @Override
     public void desplazarse() {

@@ -9,10 +9,6 @@ public abstract class Volador extends Terrestre{
     }
 
     @Override
-    public void alimentar() {
-
-    }
-    @Override
     public void desplazarse() {
         super.desplazarse();
         try {
@@ -27,7 +23,7 @@ public abstract class Volador extends Terrestre{
         int changeDir = (int) Math.floor(random);
 
         int flyamount = 10;
-        if(changeDir % 10 == 1 && super.animalLabel.getY() == super.startY){
+        if(changeDir % 8 == 1 && super.animalLabel.getY() == super.startY){
             for (int i = flyamount; i > 0; i--) {
                 super.animalLabel.setLocation(super.animalLabel.getX(), super.animalLabel.getY() - flyamount);
                 super.thread.sleep(10);

@@ -74,6 +74,7 @@ public class FiltroSelectorAnimal {
             case Rana -> aux = new Rana();
             case TiburonMartillo -> aux = new TiburonMartillo();
         }
+        aux.setHabitat(habitat);
         return aux;
     }
 }

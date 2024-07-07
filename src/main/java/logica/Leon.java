@@ -7,11 +7,6 @@ public class Leon extends Terrestre {
         super.sobreviveEnSuelo(TipoSuelo.TIERRA);
         super.setRutaImagen("src/imagenes animales/leon.png");
     }
-    @Override
-    public void alimentar() {
-        super.alimentar();
-        System.out.println("El león se está alimentando.");
-    }
     public int getSolitario() {
         return 0;
     }

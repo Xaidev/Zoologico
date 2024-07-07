@@ -2,6 +2,6 @@ package logica;
 
 public class ComidaHerbivoro extends Comida{
     public ComidaHerbivoro(){
-        super();
+        super("Herbivoro");
     }
 }

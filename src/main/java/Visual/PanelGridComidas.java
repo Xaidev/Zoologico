@@ -7,9 +7,10 @@ import java.util.ArrayList;
 
 public class PanelGridComidas extends JPanel {
     private Habitat habitat;
-    private Deposito<Comida> comidas;
+    private Deposito comidas;
     private PanelHabitat panelHabitat;
     private ArrayList<JLabel> spaces;
+    private int depositoTama;
 
 
     final int widthAllGrid = 400;
@@ -33,8 +34,10 @@ public class PanelGridComidas extends JPanel {
 
     public void drawComidas(){
         limpiarImagenes();
+        comidas.setVisualDeposito(this);
         if(comidas == null)
             return;
+        System.out.println(comidas.getSize());
 
         for(int i = 0; i < comidas.getSize(); i++){
             try {
@@ -56,7 +59,6 @@ public class PanelGridComidas extends JPanel {
     public void limpiarImagenes(){
         for(int i = 0; i < 10; i++) {
             spaces.get(i).setIcon(null);
-
         }
         this.repaint();
     }
