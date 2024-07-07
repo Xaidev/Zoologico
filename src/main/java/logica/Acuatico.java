@@ -8,10 +8,6 @@ public abstract class Acuatico extends Animal {
         super(TipoHabitat.ACUATICO,tem,espacioHabitat);
     }
 
-    @Override
-    public void alimentar() {
-
-    }
     int dirX = 0;
     int dirY = 0;
     @Override

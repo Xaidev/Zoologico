@@ -1,12 +1,19 @@
 package logica;
+import Visual.PanelGridComidas;
+
 import java.util.ArrayList;
 
 /**
  * Arreglo donde se guardaran todos los objetos
  */
 
-public class Deposito<T> {
-    private ArrayList<T> deposito;
+public class Deposito {
+    private PanelGridComidas visualDeposito;
+    private ArrayList<Comida> deposito;
+
+    public void setVisualDeposito(PanelGridComidas p){
+        visualDeposito = p;
+    }
 
     /**
      * Constructor de Deposito se instancia un nuevo objeto
@@ -20,13 +27,13 @@ public class Deposito<T> {
      * @param t Objeto a agregar
      * @throws ExcesoDeComidaEnElHabitat Excepción que se lanza si el array esta lleno
      */
-    public void addObjeto(T t) throws ExcesoDeComidaEnElHabitat{
+    public void addObjeto(Comida t) throws ExcesoDeComidaEnElHabitat{
         if(deposito.size() >= 10){
             throw new ExcesoDeComidaEnElHabitat("Exceso de comida en el habitat");
         }
         deposito.add(t);
     }
-    public T lookObjeto(int index){
+    public Comida lookObjeto(int index){
         if(deposito.isEmpty())
             return null;
         return deposito.get(index);
@@ -38,13 +45,15 @@ public class Deposito<T> {
      * @return Objeto obtenido
      * @throws NoHayComidaEnElHabitat Excepción que se lanza si el array esta vacio
      */
-    public T getObjeto(T t, String s) throws NoHayComidaEnElHabitat{
+    public Comida getObjeto(Comida t, String s) throws NoHayComidaEnElHabitat{
         if(deposito.isEmpty()){
             throw new NoHayComidaEnElHabitat("No hay comida en el habitat");
         }
-       for(T obj : deposito){
-           if(obj.equals(t)){
+       for(Comida obj : deposito){
+           if(obj.compareTo(t)|| t.compareTo(new ComidaOmnivoro())
+           || (t.compareTo(new ComidaCarnivoro()) && obj.compareTo(new ComidaOmnivoro()))){
                deposito.remove(obj);
+               visualDeposito.drawComidas();
                return obj;
            }
        }

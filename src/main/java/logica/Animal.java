@@ -12,11 +12,15 @@ public abstract class Animal {
 
     public int xSize = 100;
     public int ySize = 100;
-
     private Temperatura temperaturaAdecuada;
     private TipoHabitat tipoHabitat;
     private Tamaño espacioHabitat;
     private ArrayList<TipoSuelo> suelosDisponibles;
+
+    private Habitat actualHabitat;
+
+    // POR DEFECTO ES OMNIVORO
+    private Comida tipoAlimento = new ComidaOmnivoro();
 
     public Animal(TipoHabitat h, Temperatura t, Tamaño s) {
         animalLabel = new JLabel("Hola");
@@ -27,6 +31,14 @@ public abstract class Animal {
 
         xSize *= espacioHabitat.ordinal() + 1;
         ySize *= espacioHabitat.ordinal() + 1;
+    }
+
+    public void setHabitat(Habitat h){
+        actualHabitat = h;
+    }
+
+    public void setTipoComida(Comida c){
+        tipoAlimento = c;
     }
 
     public void setRutaImagen(String arg) {
@@ -71,7 +83,16 @@ public abstract class Animal {
 
     public abstract void desplazarse();
 
-    public abstract void alimentar();
+    int hambrePercent = 0;
+    // RETORNA FALSE SI NO HAY QUE ALIMENTARLO
+    public boolean alimentar(){
+        System.out.println(hambrePercent);
+        if(hambrePercent >= 100){
+            buscarComida();
+            return true;
+        }
+        return false;
+    }
 
     public abstract int getSolitario();
 
@@ -79,7 +100,8 @@ public abstract class Animal {
     // Actualiza cada 100 milisegundos
     public void update(Thread thread){
         this.thread = thread;
-        alimentar();
+        if(alimentar())
+            return;
         quiereMoverse();
     }
 
@@ -89,6 +111,7 @@ public abstract class Animal {
     {
         if (moveDelay.isRunning() && moveDelay.getDelay() <= probabtimeMove){
             desplazarse();
+            hambrePercent += (int) Math.floor(random)%10;
             return;
         }
         else if (moveDelay.isRunning())
@@ -100,5 +123,16 @@ public abstract class Animal {
         moveDelay = new Timer(wait*1000 +offsetTimeMove, null);
         moveDelay.start();
         moveDelay.setRepeats(false);
+    }
+
+    void buscarComida(){
+        Deposito deposito = actualHabitat.getDeposito();
+        try {
+            deposito.getObjeto(tipoAlimento,getClass().getSimpleName());
+            hambrePercent = 0;
+        }
+        catch (Exception e){
+            System.out.println(e.toString());
+        }
     }
 }
