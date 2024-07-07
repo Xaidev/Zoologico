@@ -77,6 +77,7 @@ public class PanelHabitat extends JPanel {
         if (botonCrearHabitat != null) {
             this.botonCrearHabitat.setVisible(false);
         }
+        this.add(panelPrincipal.getPanelAvisos());
         panelEleccionHabitats.imprimirEstadoActualHabitats();
     }
 
@@ -128,8 +129,9 @@ public class PanelHabitat extends JPanel {
                             botonesEleccionHabitat.get(numeroHabitat).setBorderPainted(false);
                             break;
                         case CONGELADO:
-                            crearImagen(habitatInfoLabel, "src/main/java/Visual/Imagenes/HabitatArtico.png", 0, 0, 800, 700);
-                            botonesEleccionHabitat.get(numeroHabitat).crearImagen(botonesEleccionHabitat.get(numeroHabitat).conseguirLabel(), "src/main/java/Visual/Imagenes/HabitatArtico.png", 0, 0, 200, 200);
+                            crearImagen(habitatInfoLabel, "src/main/java/Visual/Imagenes/HabitatArctico" +
+                                    "2.jpeg", 0, 0, 800, 700);
+                            botonesEleccionHabitat.get(numeroHabitat).crearImagen(botonesEleccionHabitat.get(numeroHabitat).conseguirLabel(), "src/main/java/Visual/Imagenes/HabitatArctico" + "2.jpeg", 0, 0, 200, 200);
                             botonesEleccionHabitat.get(numeroHabitat).setBorderPainted(false);
                             break;
                     }

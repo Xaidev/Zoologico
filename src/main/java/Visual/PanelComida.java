@@ -26,7 +26,7 @@ public class PanelComida extends JPanel{
 
         JButton AgregarComidaCarnivoro = new JButton("Carnivoro");
         AgregarComidaCarnivoro.setBounds(800,startPosY,100,heigthButton);
-        JButton AgregarComidaHervivoro = new JButton("Hervivoro");
+        JButton AgregarComidaHervivoro = new JButton("Hebivoro");
         AgregarComidaHervivoro.setBounds(900,startPosY,100,heigthButton);
         JButton AgregarComidaOmnivoro = new JButton("Omnivoro");
         AgregarComidaOmnivoro.setBounds(1000,startPosY,100,heigthButton);

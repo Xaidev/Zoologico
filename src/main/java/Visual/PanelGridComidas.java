@@ -32,9 +32,9 @@ public class PanelGridComidas extends JPanel {
     }
 
     public void drawComidas(){
+        limpiarImagenes();
         if(comidas == null)
             return;
-        System.out.println(comidas.getSize());
 
         for(int i = 0; i < comidas.getSize(); i++){
             try {
@@ -56,6 +56,7 @@ public class PanelGridComidas extends JPanel {
     public void limpiarImagenes(){
         for(int i = 0; i < 10; i++) {
             spaces.get(i).setIcon(null);
+
         }
         this.repaint();
     }

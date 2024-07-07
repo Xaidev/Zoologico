@@ -10,6 +10,7 @@ public class PanelPrincipal extends JPanel {
     private ArrayList<PanelHabitat> panelHabitatArrayList;
     private BotonMenu botonMenu;
     private int numeroHabitat;
+    private PanelAvisos panelAvisos;
 
 
     public PanelPrincipal() {
@@ -18,6 +19,8 @@ public class PanelPrincipal extends JPanel {
         panelEleccionHabitats = new PanelEleccionHabitats(this);
         panelHabitatArrayList = new ArrayList<>();
         panelMenu = new PanelMenu();
+        panelAvisos = new PanelAvisos();
+
 
         this.panelHabitatArrayList = panelEleccionHabitats.getPanelHabitats();
 
@@ -68,6 +71,10 @@ public class PanelPrincipal extends JPanel {
         }
         this.revalidate();
         this.repaint();
+    }
+
+    public PanelAvisos getPanelAvisos(){
+        return panelAvisos;
     }
 
     public int getNumeroHabitat() {

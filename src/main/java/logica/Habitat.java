@@ -23,6 +23,9 @@ public class Habitat {
     }
 
     public void agregarAnimals(Animal animal) throws LimiteAnimalesExcedidoException {
+        if(animal.getSolitario() == 1 && !animals.isEmpty()){
+            throw new LimiteAnimalesExcedidoException("No se pueden agregar un animal solitario");
+        }
         for(Animal a : animals){
             if(a.getSolitario() == 1){
                 throw new LimiteAnimalesExcedidoException("No se pueden agregar mas animales solitarios");
@@ -31,6 +34,7 @@ public class Habitat {
         if(animals.size() == 5) {
             throw new LimiteAnimalesExcedidoException("No se pueden agregar mas animales");
         }
+
         animals.add(animal);
     }
 
