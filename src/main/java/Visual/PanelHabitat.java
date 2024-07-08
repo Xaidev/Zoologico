@@ -159,7 +159,7 @@ public class PanelHabitat extends JPanel {
      * @param ancho     El ancho de la imagen.
      * @param alto      El alto de la imagen.
      */
-    public void crearImagen(JLabel label, String rutaImagen, int x, int y, int ancho, int alto) {
+    public static void crearImagen(JLabel label, String rutaImagen, int x, int y, int ancho, int alto) {
         ImageIcon icon = new ImageIcon(rutaImagen);
         Image img = icon.getImage();
         Image newImg = img.getScaledInstance(ancho, alto, Image.SCALE_SMOOTH);
