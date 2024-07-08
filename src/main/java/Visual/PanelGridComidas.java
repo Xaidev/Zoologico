@@ -15,9 +15,7 @@ public class PanelGridComidas extends JPanel {
     private Habitat habitat;
     private Deposito comidas;
     private PanelPrincipal panelPr;
-    private PanelHabitat panelHabitat;
     private ArrayList<JLabel> spaces;
-    private int depositoTama;
 
     /**
      * Constructor de la clase PanelGridComidas.
@@ -30,7 +28,6 @@ public class PanelGridComidas extends JPanel {
      */
     public PanelGridComidas(int x, int y, Habitat h, PanelHabitat pH, PanelPrincipal panelPrincipal) {
         habitat = h;
-        panelHabitat = pH;
         panelPr = panelPrincipal;
         comidas = habitat.getDeposito();
 
