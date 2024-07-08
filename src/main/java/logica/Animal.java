@@ -13,8 +13,8 @@ public abstract class Animal {
     public int startX = 0;
     public int startY = 300;
     public boolean one;
-    public int xSize = 100;
-    public int ySize = 100;
+    public int xSize = 70;
+    public int ySize = 70;
     private Temperatura temperaturaAdecuada;
     private TipoHabitat tipoHabitat;
     private Tamaño espacioHabitat;

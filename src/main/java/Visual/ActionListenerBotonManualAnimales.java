@@ -33,7 +33,7 @@ public class ActionListenerBotonManualAnimales implements ActionListener {
         nuevaVentana.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         try {
-            nuevaVentana.getContentPane().add(panel);
+            nuevaVentana.add(panel);
             nuevaVentana.setVisible(true);
         } catch (Exception exception) {
             exception.printStackTrace();

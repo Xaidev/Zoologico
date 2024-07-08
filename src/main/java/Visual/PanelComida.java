@@ -5,6 +5,7 @@ import logica.ComidaHerbivoro;
 import logica.Habitat;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -29,6 +30,7 @@ public class PanelComida extends JPanel {
         int startPosY = 500;
         int heigthButton = 30;
         JLabel Title = new JLabel("AGREGAR COMIDA:");
+        Title.setForeground(Color.white);
         Title.setBounds(800, startPosY - 20, 300, 20);
         this.add(Title);
 
@@ -37,7 +39,7 @@ public class PanelComida extends JPanel {
 
         JButton AgregarComidaCarnivoro = new JButton("Carnivoro");
         AgregarComidaCarnivoro.setBounds(800, startPosY, 100, heigthButton);
-        JButton AgregarComidaHervivoro = new JButton("Hebivoro");
+        JButton AgregarComidaHervivoro = new JButton("Herbivoro");
         AgregarComidaHervivoro.setBounds(900, startPosY, 100, heigthButton);
         JButton LimpiarComida = new JButton("Borrar");
         LimpiarComida.setBounds(1100, startPosY, 80, heigthButton);
@@ -51,7 +53,6 @@ public class PanelComida extends JPanel {
                     panelGridComidas.drawComidas();
                 } catch (Exception error) {
                     System.out.println(error);
-                    System.out.println("elpepe");
                 }
             }
         });
@@ -65,7 +66,6 @@ public class PanelComida extends JPanel {
                     panelGridComidas.drawComidas();
                 } catch (Exception error) {
                     System.out.println(error);
-                    System.out.println("etesech");
                 }
 
             }

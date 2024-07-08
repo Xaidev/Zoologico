@@ -2,9 +2,15 @@ package Visual;
 
 import logica.CamposHabitatIncompletosException;
 import logica.Habitat;
+import org.w3c.dom.css.RGBColor;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -31,6 +37,7 @@ public class PanelHabitat extends JPanel {
      * @param panelEleccionHabitats El panel para la selección de hábitats.
      */
     public PanelHabitat(Habitat habitat, int numeroHabitat, PanelPrincipal panelPrincipal, PanelEleccionHabitats panelEleccionHabitats) {
+        fondo = new JLabel();
         this.habitat = habitat;
         this.panelPrincipal = panelPrincipal;
         this.panelEleccionHabitats = panelEleccionHabitats;
@@ -56,7 +63,8 @@ public class PanelHabitat extends JPanel {
         if (habitat == null) {
             BotonCrearHabitat botonCrearHabitat = new BotonCrearHabitat(this);
             this.botonCrearHabitat = botonCrearHabitat.getBoton();
-            this.botonCrearHabitat.setBounds(550, 320, 100, 50);
+            this.botonCrearHabitat.setBorder(BorderFactory.createLineBorder(Color.black,5));
+            this.botonCrearHabitat.setBounds(525, 320, 150, 50);
             add(this.botonCrearHabitat);
             this.add(botonRetroceder);
         }
@@ -112,6 +120,7 @@ public class PanelHabitat extends JPanel {
      */
     public void updateHabitatInfo() {
         if (habitat != null) {
+            fondo.setVisible(false);
             switch (habitat.getTipoHabitat()) {
                 case ACUATICO:
                     switch (habitat.getTipoSuelo()) {
@@ -201,10 +210,24 @@ public class PanelHabitat extends JPanel {
      *
      * @param g El contexto gráfico en el cual dibujar.
      */
+    JLabel fondo;
+    boolean once = false;
+    Image img = null;
     @Override
     protected void paintComponent(Graphics g) {
+        if(!once){
+            once = true;
+            crearImagen(fondo, "src/main/java/Visual/Imagenes/CreateHabitat.png", 0, 0, 1184, 662);
+        }
+        this.add(fondo);
         add(habitatInfoLabel);
         super.paintComponent(g);
+        try {
+            img = ImageIO.read(new File("./src/main/java/Visual/Imagenes/ParteHabitat.png"));
+            img = img.getScaledInstance(390,700,Image.SCALE_DEFAULT);
+        } catch (IOException e) {
+        }
+        g.drawImage(img,800, 0, null);
     }
 
     public PanelPrincipal getPanelPrincipal() {

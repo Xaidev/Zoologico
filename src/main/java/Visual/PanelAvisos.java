@@ -27,8 +27,7 @@ public class PanelAvisos extends JPanel {
         spaces = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             JLabel aux = new JLabel();
-            if (!interior)
-                aux.setForeground(Color.white);
+            aux.setForeground(Color.white);
             spaces.add(aux);
             this.add(aux);
         }

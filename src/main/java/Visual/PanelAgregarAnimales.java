@@ -34,6 +34,7 @@ public class PanelAgregarAnimales extends JPanel {
 
         int i = 0;
         labelTitle = new JLabel("Animales Disponibles");
+        labelTitle.setForeground(Color.white);
         this.add(labelTitle);
 
         for (SelectorAnimal a : nombresAnimales) {
