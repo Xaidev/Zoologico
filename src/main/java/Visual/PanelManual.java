@@ -1,6 +1,8 @@
 package Visual;
 
 
+import logica.SelectorAnimal;
+
 import javax.swing.*;
 import java.awt.*;
 import java.lang.reflect.Array;
@@ -10,9 +12,9 @@ public class PanelManual extends JPanel {
     public ArrayList<JLabel> labels;
 
     public PanelManual(){
-        this.setLayout(new GridLayout(5,0));
+        this.setLayout(new GridLayout(SelectorAnimal.values().length,0));
         labels = new ArrayList<>();
-        for(int i = 0; i < 5; i++){
+        for(int i = 0; i < SelectorAnimal.values().length; i++){
             JLabel aux = new JLabel();
             labels.add(aux);
             this.add(aux);

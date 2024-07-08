@@ -121,7 +121,7 @@ public class PanelHabitat extends JPanel {
                             break;
                         case ACUOSO:
                             crearImagen(habitatInfoLabel, "src/main/java/Visual/Imagenes/HabitatPantano.png", 0, 0, 800, 700);
-                            botonesEleccionHabitat.get(numeroHabitat).crearImagen(botonesEleccionHabitat.get(numeroHabitat).conseguirLabel(), "src/main/java/Visual/Imagenes/HabitatArtico.png", 0, 0, 200, 200);
+                            botonesEleccionHabitat.get(numeroHabitat).crearImagen(botonesEleccionHabitat.get(numeroHabitat).conseguirLabel(), "src/main/java/Visual/Imagenes/HabitatPantano.png", 0, 0, 200, 200);
                             botonesEleccionHabitat.get(numeroHabitat).setBorderPainted(false);
                             break;
                         case TIERRA:
@@ -168,7 +168,7 @@ public class PanelHabitat extends JPanel {
      * @param ancho     El ancho de la imagen.
      * @param alto      El alto de la imagen.
      */
-    public void crearImagen(JLabel label, String rutaImagen, int x, int y, int ancho, int alto) {
+    public static void crearImagen(JLabel label, String rutaImagen, int x, int y, int ancho, int alto) {
         ImageIcon icon = new ImageIcon(rutaImagen);
         Image img = icon.getImage();
         Image newImg = img.getScaledInstance(ancho, alto, Image.SCALE_SMOOTH);

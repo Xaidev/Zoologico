@@ -28,25 +28,9 @@ public class PanelComida extends JPanel{
         AgregarComidaCarnivoro.setBounds(800,startPosY,100,heigthButton);
         JButton AgregarComidaHervivoro = new JButton("Hebivoro");
         AgregarComidaHervivoro.setBounds(900,startPosY,100,heigthButton);
-        JButton AgregarComidaOmnivoro = new JButton("Omnivoro");
-        AgregarComidaOmnivoro.setBounds(1000,startPosY,100,heigthButton);
         JButton LimpiarComida = new JButton("Borrar");
         LimpiarComida.setBounds(1100,startPosY,80,heigthButton);
 
-        AgregarComidaOmnivoro.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    h.getDeposito().addObjeto(new ComidaOmnivoro());
-                    Thread.sleep(200);
-                    panelGridComidas.drawComidas();
-                }catch (Exception error){
-                    System.out.println(error.toString());
-                    System.out.println("asd");
-                }
-
-            }
-        });
         AgregarComidaCarnivoro.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -84,7 +68,26 @@ public class PanelComida extends JPanel{
 
         this.add(AgregarComidaCarnivoro);
         this.add(AgregarComidaHervivoro);
-        this.add(AgregarComidaOmnivoro);
         this.add(LimpiarComida);
     }
 }
+
+/*
+    JButton AgregarComidaOmnivoro = new JButton("Omnivoro");
+    AgregarComidaOmnivoro.setBounds(1000,startPosY,100,heigthButton);
+    AgregarComidaOmnivoro.addActionListener(new ActionListener() {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        try {
+            h.getDeposito().addObjeto(new ComidaOmnivoro());
+            Thread.sleep(200);
+            panelGridComidas.drawComidas();
+        }catch (Exception error){
+            System.out.println(error.toString());
+            System.out.println("asd");
+        }
+
+    }
+    this.add(AgregarComidaOmnivoro);
+});
+*/

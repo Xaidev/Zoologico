@@ -26,6 +26,7 @@ public class BotonEleccionHabitat extends JButton {
         this.add(label);
         label.setBounds(0,0,500,500);
         label.setVisible(true);
+        this.setBorderPainted(false);
         this.setContentAreaFilled(false);
         this.setOpaque(false);
 

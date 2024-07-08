@@ -32,8 +32,8 @@ public abstract class Animal {
         temperaturaAdecuada = t;
         espacioHabitat = s;
         one = false;
-        xSize *= espacioHabitat.ordinal() + 1;
-        ySize *= espacioHabitat.ordinal() + 1;
+        xSize *= (3-espacioHabitat.ordinal() + 1);
+        ySize *= (3-espacioHabitat.ordinal() + 1);
     }
 
     public void setPanelPrincipal(PanelPrincipal panelPrincipal) {
@@ -54,11 +54,9 @@ public abstract class Animal {
     public String getTipoComida(){
         switch (tipoAlimento.getClass().getSimpleName()){
             case "ComidaCarnivoro":
-                return "Carnivoro u Omnivoro    ";
+                return "Carnivoro";
             case "ComidaHerbivoro":
-                return "Herbivoro u Omnivoro";
-            case "ComidaOmnivoro":
-                return "Cualquiera";
+                return "Herbivoro";
         }
         return null;
     }

@@ -42,23 +42,22 @@ public class PanelEleccionHabitats extends JPanel {
         }
 
 
-        botonesEleccionHabitat.get(0).setBounds(200, 120, 200, 200);
+        botonesEleccionHabitat.get(0).setBounds(188, 75, 250, 250);
         this.add(botonesEleccionHabitat.get(0));
 
-        botonesEleccionHabitat.get(1).setBounds(300, 380, 200, 200);
+        botonesEleccionHabitat.get(1).setBounds(287, 341, 250, 250);
         this.add(botonesEleccionHabitat.get(1));
 
 
-        botonesEleccionHabitat.get(2).setBounds(700, 120, 200, 200);
+        botonesEleccionHabitat.get(2).setBounds(682, 83, 250, 250);
         this.add(botonesEleccionHabitat.get(2));
 
 
-        botonesEleccionHabitat.get(3).setBounds(800, 380, 200, 200);
+        botonesEleccionHabitat.get(3).setBounds(770, 351, 250, 250);
         this.add(botonesEleccionHabitat.get(3));
 
-
         PanelAvisos panelAvisos = panelPrincipal.getPanelAvisosEleccionHabitat();
-        panelAvisos.setBounds(0, 0, 400, 100);
+        panelAvisos.setBounds(960, 20, 400, 100);
         this.add(panelAvisos);
         this.setVisible(true);
     }
@@ -66,6 +65,9 @@ public class PanelEleccionHabitats extends JPanel {
 
     @Override
     protected void paintComponent(Graphics g) {
+        JLabel title = new JLabel();
+        PanelHabitat.crearImagen(title,"src/main/java/Visual/Imagenes/MapadeHabitats.png",0,0,1184,662);
+        this.add(title);
         super.paintComponent(g);
     }
     /**
