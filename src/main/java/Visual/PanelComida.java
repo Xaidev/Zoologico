@@ -8,7 +8,19 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * PanelComida es una clase que representa un panel para la gestión de comida dentro de un hábitat.
+ * Extiende de JPanel y contiene botones para agregar comida carnivora y herbívora, así como para limpiar el depósito de comida.
+ */
 public class PanelComida extends JPanel {
+
+    /**
+     * Constructor de la clase PanelComida.
+     *
+     * @param h             El hábitat asociado donde se gestionará la comida.
+     * @param ph            El panel principal donde se mostrarán los cambios.
+     * @param panelPrincipal El panel principal de la aplicación.
+     */
     public PanelComida(Habitat h, PanelHabitat ph, PanelPrincipal panelPrincipal) {
         this.setLayout(null);
         this.setOpaque(false);
@@ -43,6 +55,7 @@ public class PanelComida extends JPanel {
                 }
             }
         });
+
         AgregarComidaHervivoro.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -57,6 +70,7 @@ public class PanelComida extends JPanel {
 
             }
         });
+
         LimpiarComida.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -70,23 +84,3 @@ public class PanelComida extends JPanel {
         this.add(LimpiarComida);
     }
 }
-
-/*
-    JButton AgregarComidaOmnivoro = new JButton("Omnivoro");
-    AgregarComidaOmnivoro.setBounds(1000,startPosY,100,heigthButton);
-    AgregarComidaOmnivoro.addActionListener(new ActionListener() {
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        try {
-            h.getDeposito().addObjeto(new ComidaOmnivoro());
-            Thread.sleep(200);
-            panelGridComidas.drawComidas();
-        }catch (Exception error){
-            System.out.println(error.toString());
-            System.out.println("asd");
-        }
-
-    }
-    this.add(AgregarComidaOmnivoro);
-});
-*/

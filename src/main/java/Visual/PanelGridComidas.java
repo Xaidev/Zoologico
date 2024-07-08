@@ -6,6 +6,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * PanelGridComidas es una clase que representa un panel para mostrar visualmente el depósito de comida de un hábitat.
+ * Extiende de JPanel y muestra imágenes de diferentes tipos de comida (carnívora, herbívora, omnívora).
+ */
 public class PanelGridComidas extends JPanel {
     final int widthAllGrid = 400;
     private Habitat habitat;
@@ -15,6 +19,15 @@ public class PanelGridComidas extends JPanel {
     private ArrayList<JLabel> spaces;
     private int depositoTama;
 
+    /**
+     * Constructor de la clase PanelGridComidas.
+     *
+     * @param x              Posición en x donde se ubicará el panel.
+     * @param y              Posición en y donde se ubicará el panel.
+     * @param h              El hábitat asociado donde se gestiona la comida.
+     * @param pH             El panel de hábitat principal donde se mostrarán los cambios.
+     * @param panelPrincipal El panel principal de la aplicación.
+     */
     public PanelGridComidas(int x, int y, Habitat h, PanelHabitat pH, PanelPrincipal panelPrincipal) {
         habitat = h;
         panelHabitat = pH;
@@ -34,6 +47,10 @@ public class PanelGridComidas extends JPanel {
         drawComidas();
     }
 
+    /**
+     * Método para dibujar las imágenes de comida en el panel.
+     * Llama al método limpiarImagenes antes de dibujar las nuevas imágenes.
+     */
     public void drawComidas() {
         limpiarImagenes();
         comidas.setVisualDeposito(this);
@@ -58,6 +75,10 @@ public class PanelGridComidas extends JPanel {
         }
     }
 
+    /**
+     * Método para limpiar las imágenes de comida en el panel.
+     * Elimina las imágenes actuales de los JLabels.
+     */
     public void limpiarImagenes() {
         for (int i = 0; i < 10; i++) {
             spaces.get(i).setIcon(null);
@@ -65,6 +86,16 @@ public class PanelGridComidas extends JPanel {
         this.repaint();
     }
 
+    /**
+     * Método para crear una imagen y colocarla en un JLabel.
+     *
+     * @param label     JLabel donde se colocará la imagen.
+     * @param rutaImagen Ruta de la imagen a cargar.
+     * @param x         Posición en x de la imagen.
+     * @param y         Posición en y de la imagen.
+     * @param ancho     Ancho de la imagen.
+     * @param alto      Alto de la imagen.
+     */
     public void crearImagen(JLabel label, String rutaImagen, int x, int y, int ancho, int alto) {
         ImageIcon icon = new ImageIcon(rutaImagen);
         Image img = icon.getImage();
