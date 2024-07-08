@@ -5,6 +5,7 @@ public class Ciervo extends Terrestre{
         super(Temperatura.ALTA,Tamaño.MEDIANO);
         super.sobreviveEnSuelo(TipoSuelo.TIERRA);
         super.sobreviveEnSuelo(TipoSuelo.QUEBRADO);
+        setTipoComida(new ComidaHerbivoro());
         super.setRutaImagen("src/imagenes animales/ciervo.png");
     }
     public int getSolitario() {

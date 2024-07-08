@@ -6,6 +6,7 @@ public class Camello extends Terrestre{
         super.sobreviveEnSuelo(TipoSuelo.ARENA);
         super.sobreviveEnSuelo(TipoSuelo.ARENOSO);
         setTipoComida(new ComidaHerbivoro());
+        super.setRutaImagen("src/imagenes animales/camello.png");
     }
     public int getSolitario() {
         return 0;
