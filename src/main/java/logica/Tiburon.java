@@ -25,6 +25,6 @@ public class Tiburon extends Acuatico {
      * @return 0, indicando que el tiburón no es solitario.
      */
     public int getSolitario() {
-        return 0;
+        return 1;
     }
 }
