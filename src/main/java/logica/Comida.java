@@ -1,6 +1,6 @@
 package logica;
 
-public abstract class Comida {
+public class Comida {
     String tipo;
     public Comida(String arg){
         tipo = arg;
