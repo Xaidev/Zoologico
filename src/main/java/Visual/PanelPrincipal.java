@@ -18,14 +18,14 @@ public class PanelPrincipal extends JPanel {
     public PanelPrincipal() {
         this.setLayout(null);
 
-        panelAvisosEleccionHabitat = new PanelAvisos();
+        panelAvisosEleccionHabitat = new PanelAvisos(false);
         panelAvisosArrayList = new ArrayList<>();
         panelEleccionHabitats = new PanelEleccionHabitats(this);
         panelHabitatArrayList = new ArrayList<>();
         panelMenu = new PanelMenu();
 
         for(int i = 0; i < 4; i++){
-            panelAvisosArrayList.add(new PanelAvisos());
+            panelAvisosArrayList.add(new PanelAvisos(true));
         }
 
         this.panelHabitatArrayList = panelEleccionHabitats.getPanelHabitats();
