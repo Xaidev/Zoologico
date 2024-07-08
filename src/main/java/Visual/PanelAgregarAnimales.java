@@ -43,7 +43,7 @@ public class PanelAgregarAnimales extends JPanel {
             });
             this.add(b);
         }
-        if(i == 0){
+        if (i == 0) {
             labelTitle.setText("No hay animales disponibles");
         }
         Ventana.addAnimalThread(habitat);

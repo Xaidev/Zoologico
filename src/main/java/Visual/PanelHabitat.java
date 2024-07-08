@@ -1,6 +1,7 @@
 package Visual;
 
-import logica.*;
+import logica.CamposHabitatIncompletosException;
+import logica.Habitat;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,22 +12,22 @@ import java.util.ArrayList;
  */
 public class PanelHabitat extends JPanel {
 
-    private Habitat habitat;
     private final JLabel habitatInfoLabel;
-    private JButton botonCrearHabitat;
     private final JButton botonRetroceder;
     private final PanelPrincipal panelPrincipal;
     private final PanelEleccionHabitats panelEleccionHabitats;
-    private int numeroHabitat;
-    private ArrayList<BotonEleccionHabitat> botonesEleccionHabitat;
-    private PanelManual panelManual;
     BotonManual botonManual;
+    private Habitat habitat;
+    private JButton botonCrearHabitat;
+    private int numeroHabitat;
+    private final ArrayList<BotonEleccionHabitat> botonesEleccionHabitat;
+    private final PanelManual panelManual;
 
     /**
      * Constructor de la clase PanelHabitat.
      *
-     * @param habitat             El objeto hábitat que se mostrará y gestionará.
-     * @param panelPrincipal      El panel principal de la aplicación.
+     * @param habitat               El objeto hábitat que se mostrará y gestionará.
+     * @param panelPrincipal        El panel principal de la aplicación.
      * @param panelEleccionHabitats El panel para la selección de hábitats.
      */
     public PanelHabitat(Habitat habitat, int numeroHabitat, PanelPrincipal panelPrincipal, PanelEleccionHabitats panelEleccionHabitats) {
@@ -63,6 +64,26 @@ public class PanelHabitat extends JPanel {
     }
 
     /**
+     * Crea una imagen y la establece en un JLabel.
+     *
+     * @param label      El JLabel donde se mostrará la imagen.
+     * @param rutaImagen La ruta de la imagen.
+     * @param x          La coordenada x de la imagen.
+     * @param y          La coordenada y de la imagen.
+     * @param ancho      El ancho de la imagen.
+     * @param alto       El alto de la imagen.
+     */
+    public static void crearImagen(JLabel label, String rutaImagen, int x, int y, int ancho, int alto) {
+        ImageIcon icon = new ImageIcon(rutaImagen);
+        Image img = icon.getImage();
+        Image newImg = img.getScaledInstance(ancho, alto, Image.SCALE_SMOOTH);
+        ImageIcon newIcon = new ImageIcon(newImg);
+        label.setIcon(newIcon);
+        label.setBounds(x, y, ancho, alto);
+        label.setVisible(true);
+    }
+
+    /**
      * Establece el hábitat y actualiza la información del hábitat.
      *
      * @param habitat El nuevo objeto hábitat.
@@ -81,10 +102,9 @@ public class PanelHabitat extends JPanel {
         if (botonCrearHabitat != null) {
             this.botonCrearHabitat.setVisible(false);
         }
-        panelPrincipal.getPanelAvisosHabitat(numeroHabitat).setBounds(800,350,400,100);
+        panelPrincipal.getPanelAvisosHabitat(numeroHabitat).setBounds(800, 350, 400, 100);
         this.add(panelPrincipal.getPanelAvisosHabitat(numeroHabitat));
 
-        panelEleccionHabitats.imprimirEstadoActualHabitats();
     }
 
     /**
@@ -140,7 +160,7 @@ public class PanelHabitat extends JPanel {
                             botonesEleccionHabitat.get(numeroHabitat).setBorderPainted(false);
                             break;
                         case CONGELADO:
-                            crearImagen(habitatInfoLabel, "src/main/java/Visual/Imagenes/HabitatArtico.png" , 0, 0, 800, 700);
+                            crearImagen(habitatInfoLabel, "src/main/java/Visual/Imagenes/HabitatArtico.png", 0, 0, 800, 700);
                             botonesEleccionHabitat.get(numeroHabitat).crearImagen(botonesEleccionHabitat.get(numeroHabitat).conseguirLabel(), "src/main/java/Visual/Imagenes/HabitatArtico.png", 0, 0, 200, 200);
                             botonesEleccionHabitat.get(numeroHabitat).setBorderPainted(false);
                             break;
@@ -153,29 +173,9 @@ public class PanelHabitat extends JPanel {
             botonManual = new BotonManual(panelManual);
             this.add(botonManual);
             this.add(agregarAnimales);
-            PanelComida panelComida = new PanelComida(habitat,this, panelPrincipal);
+            PanelComida panelComida = new PanelComida(habitat, this, panelPrincipal);
             this.add(panelComida);
         }
-    }
-
-    /**
-     * Crea una imagen y la establece en un JLabel.
-     *
-     * @param label     El JLabel donde se mostrará la imagen.
-     * @param rutaImagen La ruta de la imagen.
-     * @param x         La coordenada x de la imagen.
-     * @param y         La coordenada y de la imagen.
-     * @param ancho     El ancho de la imagen.
-     * @param alto      El alto de la imagen.
-     */
-    public static void crearImagen(JLabel label, String rutaImagen, int x, int y, int ancho, int alto) {
-        ImageIcon icon = new ImageIcon(rutaImagen);
-        Image img = icon.getImage();
-        Image newImg = img.getScaledInstance(ancho, alto, Image.SCALE_SMOOTH);
-        ImageIcon newIcon = new ImageIcon(newImg);
-        label.setIcon(newIcon);
-        label.setBounds(x, y, ancho, alto);
-        label.setVisible(true);
     }
 
     /**

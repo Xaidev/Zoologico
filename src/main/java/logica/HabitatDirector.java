@@ -1,25 +1,29 @@
 package logica;
 
 /**
- * Clase que se encarga de construir un habitat
+ * Clase que dirige la construcción de un hábitat utilizando un builder.
  */
 public class HabitatDirector {
     private HabitatBuilder builder;
 
     /**
-     * Constructor de la clase
+     * Establece el builder a utilizar para la construcción del hábitat.
+     *
+     * @param builder Builder que construirá el hábitat.
      */
     public void setBuilder(HabitatBuilder builder) {
         this.builder = builder;
     }
 
     /**
-     * Construye un habitat con los atributos dados
-     * @param tipoSuelo Tipo de suelo del habitat
-     * @param vegetacion Vegetacion del habitat
-     * @param temperatura Temperatura del habitat
-     * @param tamaño Tamaño del habitat
-     * @return Habitat construido
+     * Construye un hábitat con los atributos dados utilizando el builder configurado.
+     *
+     * @param tipoSuelo   Tipo de suelo del hábitat.
+     * @param vegetacion  Tipo de vegetación del hábitat.
+     * @param temperatura Temperatura del hábitat.
+     * @param tamaño      Tamaño del hábitat.
+     * @return Hábitat construido.
+     * @throws IllegalStateException Si el builder no ha sido inicializado.
      */
     public Habitat construirHabitat(TipoSuelo tipoSuelo, Vegetacion vegetacion, Temperatura temperatura, Tamaño tamaño) {
         if (this.builder == null) {

@@ -1,6 +1,5 @@
 package Visual;
 
-import logica.Animal;
 import logica.Habitat;
 
 import javax.swing.*;
@@ -15,10 +14,11 @@ public class PanelEleccionHabitats extends JPanel {
     private final ArrayList<Habitat> habitats;
     private final ArrayList<PanelHabitat> panelHabitats;
     private final ArrayList<Integer> numeroHabitats;
-    private ArrayList<BotonEleccionHabitat> botonesEleccionHabitat;
+    private final ArrayList<BotonEleccionHabitat> botonesEleccionHabitat;
 
     /**
      * Constructor de la clase PanelEleccionHabitats
+     *
      * @param panelPrincipal
      */
     public PanelEleccionHabitats(PanelPrincipal panelPrincipal) {
@@ -37,7 +37,7 @@ public class PanelEleccionHabitats extends JPanel {
             numeroHabitats.add(i);
         }
 
-        for(int i = 0; i < 4; i++){
+        for (int i = 0; i < 4; i++) {
             botonesEleccionHabitat.add(new BotonEleccionHabitat(panelPrincipal, numeroHabitats.get(i)));
         }
 
@@ -66,12 +66,14 @@ public class PanelEleccionHabitats extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         JLabel title = new JLabel();
-        PanelHabitat.crearImagen(title,"src/main/java/Visual/Imagenes/MapadeHabitats.png",0,0,1184,662);
+        PanelHabitat.crearImagen(title, "src/main/java/Visual/Imagenes/MapadeHabitats.png", 0, 0, 1184, 662);
         this.add(title);
         super.paintComponent(g);
     }
+
     /**
      * Getter de los habitats
+     *
      * @return habitats
      */
     public ArrayList<PanelHabitat> getPanelHabitats() {
@@ -84,6 +86,7 @@ public class PanelEleccionHabitats extends JPanel {
 
     /**
      * Setter de los habitats
+     *
      * @param numeroHabitat
      * @param habitat
      */

@@ -35,6 +35,6 @@ public class DibujarAnimales extends JPanel {
      */
     public void UpdateAnimal(Animal a, PanelHabitat panel) {
         this.add(a.animalLabel);
-        panel.crearImagen(a.animalLabel, a.getRutaImagen(), a.startX, a.startY, a.xSize, a.ySize);
+        PanelHabitat.crearImagen(a.animalLabel, a.getRutaImagen(), a.startX, a.startY, a.xSize, a.ySize);
     }
 }

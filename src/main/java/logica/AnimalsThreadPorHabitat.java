@@ -1,33 +1,43 @@
 package logica;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
 
+/**
+ * Clase que maneja los hilos de los animales por hábitat.
+ */
 public class AnimalsThreadPorHabitat {
-    private ArrayList<Animal> animals;
+    private final ArrayList<Animal> animals;
 
-    public void Eventos(Thread thread){
-        for (Animal a: animals){
+    /**
+     * Ejecuta los eventos de actualización para cada animal.
+     *
+     * @param thread El hilo que se está ejecutando.
+     */
+    public void Eventos(Thread thread) {
+        for (Animal a : animals) {
             a.update(thread);
         }
     }
 
-    public AnimalsThreadPorHabitat(ArrayList<Animal> a){
+    /**
+     * Constructor para la clase AnimalsThreadPorHabitat.
+     *
+     * @param a Lista de animales en el hábitat.
+     */
+    public AnimalsThreadPorHabitat(ArrayList<Animal> a) {
         animals = a;
-        Thread hilo = new Thread(){
+        Thread hilo = new Thread() {
             @Override
             public void run() {
-                while (true){
+                while (true) {
                     try {
                         Thread.sleep(100);
                         Eventos(this);
-                    }catch (ConcurrentModificationException e)
-                    {
+                    } catch (ConcurrentModificationException e) {
                         continue;
-                    }
-                    catch (Exception e){
-                        System.out.println(e.toString());
+                    } catch (Exception e) {
+                        System.out.println(e);
                         break;
                     }
                 }

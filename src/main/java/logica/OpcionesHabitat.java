@@ -1,11 +1,22 @@
 package logica;
 
-
+/**
+ * Clase que proporciona métodos estáticos para obtener opciones de suelo, vegetación y temperatura
+ * según el tipo de hábitat y subtipo especificados.
+ */
 public class OpcionesHabitat {
+
+    /**
+     * Obtiene los tipos de suelo disponibles para un hábitat dado.
+     *
+     * @param tipoHabitat Tipo de hábitat (acuático o terrestre)
+     * @param subTipo     Subtipo específico de hábitat terrestre (por ejemplo, "Artico", "Bosque", "Desierto", etc.)
+     * @return Arreglo de tipos de suelo disponibles
+     */
     public static TipoSuelo[] getSuelos(TipoHabitat tipoHabitat, String subTipo) {
         switch (tipoHabitat) {
             case ACUATICO:
-                return new TipoSuelo[]{TipoSuelo.ACUOSO, TipoSuelo.LIMO,TipoSuelo.ARCILLA};
+                return new TipoSuelo[]{TipoSuelo.ACUOSO, TipoSuelo.LIMO, TipoSuelo.ARCILLA};
             case TERRESTRE:
                 switch (subTipo) {
                     case "Artico":
@@ -28,6 +39,13 @@ public class OpcionesHabitat {
         }
     }
 
+    /**
+     * Obtiene los tipos de vegetación disponibles para un hábitat dado.
+     *
+     * @param tipoHabitat Tipo de hábitat (acuático o terrestre)
+     * @param subTipo     Subtipo específico de hábitat terrestre (por ejemplo, "Artico", "Bosque", "Desierto", etc.)
+     * @return Arreglo de tipos de vegetación disponibles
+     */
     public static Vegetacion[] getVegetacion(TipoHabitat tipoHabitat, String subTipo) {
         switch (tipoHabitat) {
             case ACUATICO:
@@ -54,6 +72,13 @@ public class OpcionesHabitat {
         }
     }
 
+    /**
+     * Obtiene las temperaturas adecuadas disponibles para un hábitat dado.
+     *
+     * @param tipoHabitat Tipo de hábitat (acuático o terrestre)
+     * @param subTipo     Subtipo específico de hábitat terrestre (por ejemplo, "Artico", "Bosque", "Desierto", etc.)
+     * @return Arreglo de temperaturas adecuadas disponibles
+     */
     public static Temperatura[] getTemperaturas(TipoHabitat tipoHabitat, String subTipo) {
         switch (tipoHabitat) {
             case ACUATICO:
@@ -80,4 +105,3 @@ public class OpcionesHabitat {
         }
     }
 }
-

@@ -1,5 +1,10 @@
-    package logica;
+package logica;
 
-    public enum Tamaño {
-        GRANDE,MEDIANO,PEQUEÑO
-    }
+/**
+ * Enumeración que define diferentes tamaños para los hábitats o animales.
+ */
+public enum Tamaño {
+    GRANDE,
+    MEDIANO,
+    PEQUEÑO
+}

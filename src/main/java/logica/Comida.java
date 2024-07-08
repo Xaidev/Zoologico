@@ -1,11 +1,27 @@
 package logica;
 
+/**
+ * Clase que representa un tipo de comida genérica.
+ */
 public class Comida {
     String tipo;
-    public Comida(String arg){
+
+    /**
+     * Constructor para inicializar la comida con un tipo específico.
+     *
+     * @param arg Tipo de comida a inicializar.
+     */
+    public Comida(String arg) {
         tipo = arg;
     }
-    public boolean compareTo(Comida c){
+
+    /**
+     * Método que compara si dos comidas son del mismo tipo.
+     *
+     * @param c Comida a comparar.
+     * @return true si las comidas son del mismo tipo, false de lo contrario.
+     */
+    public boolean compareTo(Comida c) {
         return tipo.equals(c.tipo);
     }
 }

@@ -8,8 +8,10 @@ import java.awt.*;
  */
 public class BotonRetroceder extends JButton {
     private final PanelPrincipal panelPrincipal;
+
     /**
      * Constructor de la clase BotonRetroceder
+     *
      * @param panelPrincipal
      */
     public BotonRetroceder(PanelPrincipal panelPrincipal) {
@@ -28,12 +30,13 @@ public class BotonRetroceder extends JButton {
 
     /**
      * Crea una imagen en un label con las dimensiones dadas
-     * @param label Label donde se creará la imagen
+     *
+     * @param label      Label donde se creará la imagen
      * @param rutaImagen Ruta de la imagen
-     * @param x Posición en x
-     * @param y Posición en y
-     * @param ancho Ancho de la imagen
-     * @param alto Alto de la imagen
+     * @param x          Posición en x
+     * @param y          Posición en y
+     * @param ancho      Ancho de la imagen
+     * @param alto       Alto de la imagen
      */
     public void crearImagen(JLabel label, String rutaImagen, int x, int y, int ancho, int alto) {
         ImageIcon icon = new ImageIcon(rutaImagen);
