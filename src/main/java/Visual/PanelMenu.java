@@ -25,13 +25,16 @@ public class PanelMenu extends JPanel {
      */
     @Override
     public void paintComponent(Graphics g) {
+        JLabel title = new JLabel();
+        PanelHabitat.crearImagen(title,"src/main/java/Visual/Imagenes/Menu.png",0,0,1184,662);
+        this.add(title);
+
         super.paintComponent(g);
+        JLabel subtitle = new JLabel("Presiona Click Para Continuar");
+        subtitle.setBounds(600,600,200,200);
+        subtitle.setForeground(Color.white);
+        subtitle.setFont(new Font("Arial", Font.BOLD, 20));
+        this.add(subtitle);
 
-        // Dibuja texto en el panel
-        g.setFont(new Font("Arial", Font.BOLD, 20));
-        g.drawString("Presiona Click Para Continuar", getWidth() / 2 - 150, getHeight() / 2 + 100);
-
-        g.setFont(new Font("Arial", Font.BOLD, 50));
-        g.drawString("Zoologico", getWidth() / 2 - 120, getHeight() / 2 - 100);
     }
 }
