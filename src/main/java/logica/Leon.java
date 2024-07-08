@@ -5,6 +5,7 @@ public class Leon extends Terrestre {
         super(Temperatura.ALTA,Tamaño.GRANDE);
         super.sobreviveEnSuelo(TipoSuelo.ARENA);
         super.sobreviveEnSuelo(TipoSuelo.TIERRA);
+        setTipoComida(new ComidaCarnivoro());
         super.setRutaImagen("src/imagenes animales/leon.png");
     }
     public int getSolitario() {

@@ -51,6 +51,17 @@ public abstract class Animal {
     public void setTipoComida(Comida c){
         tipoAlimento = c;
     }
+    public String getTipoComida(){
+        switch (tipoAlimento.getClass().getSimpleName()){
+            case "ComidaCarnivoro":
+                return "Carnivoro u Omnivoro    ";
+            case "ComidaHerbivoro":
+                return "Herbivoro u Omnivoro";
+            case "ComidaOmnivoro":
+                return "Cualquiera";
+        }
+        return null;
+    }
 
     public void setRutaImagen(String arg) {
         rutaImagen = arg;

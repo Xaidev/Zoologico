@@ -6,6 +6,7 @@ public class Jaguar extends Terrestre{
         super.sobreviveEnSuelo(TipoSuelo.TIERRA);
         super.sobreviveEnSuelo(TipoSuelo.QUEBRADO);
         super.sobreviveEnSuelo(TipoSuelo.ARENA);
+        setTipoComida(new ComidaCarnivoro());
     }
     public int getSolitario() {
         return 1;
