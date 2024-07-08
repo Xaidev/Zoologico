@@ -7,6 +7,7 @@ public class Jaguar extends Terrestre{
         super.sobreviveEnSuelo(TipoSuelo.QUEBRADO);
         super.sobreviveEnSuelo(TipoSuelo.ARENA);
         setTipoComida(new ComidaCarnivoro());
+        super.setRutaImagen("src/imagenes animales/jaguar.png");
     }
     public int getSolitario() {
         return 1;
