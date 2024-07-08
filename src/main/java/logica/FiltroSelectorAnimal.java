@@ -72,7 +72,8 @@ public class FiltroSelectorAnimal {
             case ZorroArtico -> aux = new ZorroArtico();
             case TortugaMarina -> aux = new TortugaMarina();
             case Rana -> aux = new Rana();
-            case TiburonMartillo -> aux = new TiburonMartillo();
+            case Tiburon -> aux = new Tiburon();
+            case CaballitoDeMar -> aux = new CaballitoDeMar();
         }
         aux.setHabitat(habitat);
         return aux;

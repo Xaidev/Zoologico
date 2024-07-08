@@ -1,7 +1,7 @@
 package logica;
 
-public class TiburonMartillo extends Acuatico{
-    public TiburonMartillo(){
+public class Tiburon extends Acuatico{
+    public Tiburon(){
        super(Temperatura.BAJA,Tamaño.GRANDE);
        setTipoComida(new ComidaCarnivoro());
     }
