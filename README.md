@@ -31,10 +31,13 @@ Al clonar el repositorio, realizar lo siguiente:
 ![imagen menu inicial](https://github.com/Xaidev/Zoologico/assets/150608054/ec503dd6-7791-4b8b-8cbc-a6ade1e71d7b)
 
 * Selector de habitats:
-![imagen seleccion de habitats](https://github.com/Xaidev/Zoologico/assets/150608054/22b07e2b-795c-484b-b47d-8f6cfdff5a07)
+![imagen seleccion de habitats](ejemploSelectorHabitatREADME.png)
+
+* Crear Habitat: 
+![imagen_crearhabitat](crearHabitatREADME.png)
 
 * Interfaz dentro del Habitat:
-![imagen dentro del habitat](https://github.com/Xaidev/Zoologico/assets/150608054/11819277-89da-4479-bb9c-cee9fa58d029)
+![imagen dentro del habitat](ejemploHabitatREADME.png)
 
 ## Decisiones dentro del proyecto: 
 Inicialmente, decidimos empezar con un pequeño boceto de cómo podría ser nuestra interfaz final. Luego, desarrollamos las bases y la primera versión del diagrama
