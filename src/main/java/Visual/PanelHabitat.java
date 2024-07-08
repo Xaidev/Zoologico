@@ -114,8 +114,13 @@ public class PanelHabitat extends JPanel {
                     break;
                 case TERRESTRE:
                     switch (habitat.getTipoSuelo()) {
+                        case ARENA:
+                            crearImagen(habitatInfoLabel, "src/main/java/Visual/Imagenes/HabitatSavana.png", 0, 0, 800, 700);
+                            botonesEleccionHabitat.get(numeroHabitat).crearImagen(botonesEleccionHabitat.get(numeroHabitat).conseguirLabel(), "src/main/java/Visual/Imagenes/HabitatSavana.png", 0, 0, 200, 200);
+                            botonesEleccionHabitat.get(numeroHabitat).setBorderPainted(false);
+                            break;
                         case ACUOSO:
-                            crearImagen(habitatInfoLabel, "src/main/java/Visual/Imagenes/pantano.jpg", 0, 0, 800, 700);
+                            crearImagen(habitatInfoLabel, "src/main/java/Visual/Imagenes/HabitatPantano.png", 0, 0, 800, 700);
                             botonesEleccionHabitat.get(numeroHabitat).crearImagen(botonesEleccionHabitat.get(numeroHabitat).conseguirLabel(), "src/main/java/Visual/Imagenes/HabitatArtico.png", 0, 0, 200, 200);
                             botonesEleccionHabitat.get(numeroHabitat).setBorderPainted(false);
                             break;

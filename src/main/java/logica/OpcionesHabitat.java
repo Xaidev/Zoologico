@@ -19,7 +19,7 @@ public class OpcionesHabitat {
                     case "Pantano":
                         return new TipoSuelo[]{TipoSuelo.ACUOSO};
                     case "Savana":
-                        return new TipoSuelo[]{TipoSuelo.TIERRA, TipoSuelo.ARENA};
+                        return new TipoSuelo[]{TipoSuelo.ARENA};
                     default:
                         return new TipoSuelo[]{};
                 }
