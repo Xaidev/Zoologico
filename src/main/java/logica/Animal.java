@@ -103,7 +103,7 @@ public abstract class Animal {
 
     public abstract void desplazarse();
 
-    int hambrePercent = 90;
+    int hambrePercent = 50;
     // RETORNA FALSE SI NO HAY QUE ALIMENTARLO
     public boolean alimentar(){
         System.out.println(hambrePercent);
