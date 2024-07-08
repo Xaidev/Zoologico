@@ -22,6 +22,7 @@ public class PanelEleccionHabitats extends JPanel {
      * @param panelPrincipal
      */
     public PanelEleccionHabitats(PanelPrincipal panelPrincipal) {
+        this.setBackground(Color.black);
         this.setLayout(null);
         this.setOpaque(false);
         this.habitats = new ArrayList<>();

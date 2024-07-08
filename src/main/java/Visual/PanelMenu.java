@@ -13,6 +13,7 @@ public class PanelMenu extends JPanel {
      * Inicializa el panel con un diseño nulo, establece sus dimensiones y lo hace visible.
      */
     public PanelMenu() {
+        this.setBackground(Color.black);
         this.setLayout(null);
         this.setBounds(0, 0, 1200, 700);
         this.setVisible(true);
@@ -28,13 +29,6 @@ public class PanelMenu extends JPanel {
         JLabel title = new JLabel();
         PanelHabitat.crearImagen(title,"src/main/java/Visual/Imagenes/Menu.png",0,0,1184,662);
         this.add(title);
-
         super.paintComponent(g);
-        JLabel subtitle = new JLabel("Presiona Click Para Continuar");
-        subtitle.setBounds(600,600,200,200);
-        subtitle.setForeground(Color.white);
-        subtitle.setFont(new Font("Arial", Font.BOLD, 20));
-        this.add(subtitle);
-
     }
 }
