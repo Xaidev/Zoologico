@@ -16,7 +16,6 @@ public class PanelEleccionHabitats extends JPanel {
     private final ArrayList<PanelHabitat> panelHabitats;
     private final ArrayList<Integer> numeroHabitats;
     private ArrayList<BotonEleccionHabitat> botonesEleccionHabitat;
-    private PanelPrincipal panelPrincipal;
 
     /**
      * Constructor de la clase PanelEleccionHabitats
@@ -29,7 +28,6 @@ public class PanelEleccionHabitats extends JPanel {
         this.panelHabitats = new ArrayList<>();
         this.numeroHabitats = new ArrayList<>();
         this.botonesEleccionHabitat = new ArrayList<>();
-        this.panelPrincipal = panelPrincipal;
         this.setBounds(0, 0, 1200, 700);
 
 

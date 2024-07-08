@@ -6,6 +6,7 @@ public class Elefante extends Terrestre{
         super.sobreviveEnSuelo(TipoSuelo.TIERRA);
         super.sobreviveEnSuelo(TipoSuelo.ARENA);
         super.sobreviveEnSuelo(TipoSuelo.ARENOSO);
+        setTipoComida(new ComidaHerbivoro());
         super.setRutaImagen("src/imagenes animales/elefante.png");
     }
 

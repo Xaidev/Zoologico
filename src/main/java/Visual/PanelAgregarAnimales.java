@@ -6,10 +6,10 @@ import javax.swing.*;
 import java.awt.*;
 
 public class PanelAgregarAnimales extends JPanel {
-    public PanelAgregarAnimales(int x, int y, Habitat habitat, PanelHabitat panelHabitat) {
+    public PanelAgregarAnimales(int x, int y, Habitat habitat, PanelHabitat panelHabitat, PanelManual panelManual) {
         DibujarAnimales panelDibujarAnimales = new DibujarAnimales(habitat, panelHabitat);
-
-        this.setBounds(x, y, 200, 700);
+        JLabel labelTitle;
+        this.setBounds(x, y, 300, 700);
         this.setVisible(true);
         this.setOpaque(false);
 
@@ -17,15 +17,19 @@ public class PanelAgregarAnimales extends JPanel {
         SelectorAnimal[] nombresAnimales = SelectorAnimal.values();
         this.setLayout(new GridLayout(nombresAnimales.length + 1, 1));
 
-        JLabel labelTitle = new JLabel("Animales Disponibles");
-        this.add(labelTitle);
-
         FiltroSelectorAnimal filtro = new FiltroSelectorAnimal(habitat);
+
+        int i = 0;
+        labelTitle = new JLabel("Animales Disponibles");
+        this.add(labelTitle);
 
         for (SelectorAnimal a : nombresAnimales) {
             if (!filtro.adaptabilidadAnimal(a))
                 continue;
 
+            Animal tipoAnimal = filtro.crearAnimal(a);
+            panelManual.addTexto(tipoAnimal.getClass().getSimpleName() + " requiere de comida de tipo: " + tipoAnimal.getTipoComida(), i);
+            i++;
             JButton b = new JButton(a.name());
             b.addActionListener(e -> {
                 try {
@@ -38,6 +42,9 @@ public class PanelAgregarAnimales extends JPanel {
                 }
             });
             this.add(b);
+        }
+        if(i == 0){
+            labelTitle.setText("No hay animales disponibles");
         }
         Ventana.addAnimalThread(habitat);
     }

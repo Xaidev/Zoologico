@@ -5,6 +5,7 @@ public class OsoPolar extends Terrestre {
         super(Temperatura.BAJA,Tamaño.MEDIANO);
         super.sobreviveEnSuelo(TipoSuelo.ACUOSO);
         super.sobreviveEnSuelo(TipoSuelo.CONGELADO);
+        setTipoComida(new ComidaCarnivoro());
         super.setRutaImagen("src/imagenes animales/oso polar.png");
     }
 

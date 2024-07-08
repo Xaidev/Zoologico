@@ -6,6 +6,7 @@ public class Buho extends Volador{
         super.sobreviveEnSuelo(TipoSuelo.TIERRA);
         super.sobreviveEnSuelo(TipoSuelo.ARENA);
         super.sobreviveEnSuelo(TipoSuelo.ARENOSO);
+        setTipoComida(new ComidaCarnivoro());
         super.setRutaImagen("src/imagenes animales/buho.png");
     }
     public int getSolitario() {
